@@ -288,7 +288,6 @@ MIT License - see LICENSE file for details.
 - **[API Reference](API_REFERENCE.md)** - Complete reference for all 83+ MCP tools
 - **[Tools Reference](TOOLS_REFERENCE.md)** - Detailed documentation for all available tools
 - **[Troubleshooting Guide](TROUBLESHOOTING.md)** - Common issues and solutions
-- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to the project
 - **[Changelog](CHANGELOG.md)** - Version history and changes
 - **[Production Checklist](PRODUCTION_CHECKLIST.md)** - Production deployment guide
 
@@ -300,15 +299,6 @@ For issues and questions:
 - 🔍 Review the [API cheat sheet](apiCheetSheet.md)
 - 💬 Join the [Coolify community](https://discord.gg/coolify)
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
 
 ## 📄 License
 

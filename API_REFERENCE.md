@@ -4,7 +4,7 @@ This comprehensive documentation covers all available MCP tools in the Coolify M
 
 ## 📊 Overview
 
-- **Total MCP Tools**: 83+
+- **Total MCP Tools**: 18 consolidated tools
 - **API Coverage**: 100%
 - **Status**: All tools tested and working ✅
 - **Last Updated**: 2024-09-17
@@ -75,7 +75,7 @@ For detailed tool information, see [TOOLS_REFERENCE.md](TOOLS_REFERENCE.md).
 
 ## 📈 Statistics
 
-- **Total Endpoints Tested**: 83+
+- **Total Endpoints Tested**: 83+ (covered by 18 consolidated tools)
 - **Success Rate**: 100%
 - **Issues Found**: 4
 - **Issues Fixed**: 4

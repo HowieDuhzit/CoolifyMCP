@@ -62,11 +62,18 @@ services:
       - "traefik.http.routers.coolify-mcp-server.tls.certresolver=letsencrypt"
       - "traefik.http.services.coolify-mcp-server.loadbalancer.server.port=3000"
       
+      # HTTP to HTTPS redirect
+      - "traefik.http.routers.coolify-mcp-server-http.rule=Host(`coolify-mcp-server.SleepyStudio.xyz`)"
+      - "traefik.http.routers.coolify-mcp-server-http.entrypoints=web"
+      - "traefik.http.routers.coolify-mcp-server-http.middlewares=redirect-to-https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+      
       # Coolify specific labels
       - "coolify.managed=true"
       - "coolify.type=application"
       - "coolify.name=coolify-mcp-server"
-      - "coolify.description=Coolify MCP Server - 100% API Coverage"
+      - "coolify.description=Coolify MCP Server - 18 Consolidated Tools with 100% API Coverage"
       
       # Docker Compose labels
       - "com.docker.compose.project=coolify-mcp"
@@ -76,16 +83,30 @@ services:
       - "traefik.http.routers.coolify-mcp-server.middlewares=health-check"
       - "traefik.http.middlewares.health-check.healthcheck.path=/health"
       - "traefik.http.middlewares.health-check.healthcheck.interval=30s"
+      - "traefik.http.middlewares.health-check.healthcheck.timeout=10s"
       
-      # Security headers
+      # Security headers for HTTPS
       - "traefik.http.middlewares.security-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
       - "traefik.http.middlewares.security-headers.headers.customrequestheaders.X-Forwarded-For="
+      - "traefik.http.middlewares.security-headers.headers.customrequestheaders.X-Real-IP="
+      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.Strict-Transport-Security=max-age=31536000; includeSubDomains"
+      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-Content-Type-Options=nosniff"
+      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-Frame-Options=DENY"
+      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-XSS-Protection=1; mode=block"
+      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.Referrer-Policy=strict-origin-when-cross-origin"
       - "traefik.http.routers.coolify-mcp-server.middlewares=security-headers"
       
       # Rate limiting
-      - "traefik.http.middlewares.rate-limit.ratelimit.burst=100"
-      - "traefik.http.middlewares.rate-limit.ratelimit.average=50"
+      - "traefik.http.middlewares.rate-limit.ratelimit.burst=200"
+      - "traefik.http.middlewares.rate-limit.ratelimit.average=100"
       - "traefik.http.routers.coolify-mcp-server.middlewares=rate-limit"
+      
+      # CORS headers for API access
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowmethods=GET,POST,PUT,DELETE,OPTIONS"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowheaders=Content-Type,Authorization,X-Requested-With"
+      - "traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=https://app.coolify.io,https://coolify.io"
+      - "traefik.http.middlewares.cors.headers.accesscontrolmaxage=86400"
+      - "traefik.http.routers.coolify-mcp-server.middlewares=cors"
     
     # Logging configuration
     logging:

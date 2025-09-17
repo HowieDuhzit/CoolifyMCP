@@ -125,4 +125,7 @@ export interface HealthCheckResponse {
   status: 'healthy' | 'unhealthy';
   timestamp: string;
   uptime?: number;
+  client_ip?: string;
+  protocol?: string;
+  host?: string;
 }

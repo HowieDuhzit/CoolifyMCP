@@ -1,188 +1,121 @@
 # Coolify MCP Server - Complete Tools Reference
 
-This document provides a comprehensive reference for all 83+ MCP tools available in the Coolify MCP Server.
+This document provides a comprehensive reference for all 18 consolidated MCP tools available in the Coolify MCP Server.
 
 ## 📊 Summary
 
-- **Total Tools**: 83+
+- **Total Tools**: 18 consolidated tools
 - **API Coverage**: 100%
-- **Categories**: 11
+- **Categories**: 8
 - **Status**: All tools tested and working ✅
 
 ---
 
-## 🏥 Health & System (2 tools)
+## 🏥 System Management (1 tool)
 
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_health_check` | Check Coolify system health | ✅ Working |
-| `coolify_version` | Get Coolify API version information | ✅ Working |
-
----
-
-## 👥 Team Management (5 tools)
-
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_teams` | List all teams | ✅ Working |
-| `coolify_get_current_team` | Get current team information | ✅ Working |
-| `coolify_get_team` | Get team by ID | ✅ Working |
-| `coolify_list_team_members` | List team members | ✅ Working |
+| Tool Name | Description | Actions | Status |
+|-----------|-------------|---------|--------|
+| `coolify_system` | System health, version, and information management | `health`, `version`, `info` | ✅ Working |
 
 ---
 
-## 📁 Project Management (10 tools)
+## 👥 Team Management (1 tool)
 
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_projects` | List all projects | ✅ Working |
-| `coolify_create_project` | Create a new project | ✅ Working |
-| `coolify_get_project` | Get project by UUID | ✅ Working |
-| `coolify_update_project` | Update project | ✅ Working |
-| `coolify_delete_project` | Delete project | ✅ Working |
-| `coolify_list_project_environments` | List project environments | ✅ Working |
-| `coolify_get_project_environment` | Get project environment details | ✅ Working |
-| `coolify_create_project_environment` | Create project environment | ✅ Working |
-| `coolify_delete_project_environment` | Delete project environment | ✅ Working |
+| Tool Name | Description | Actions | Status |
+|-----------|-------------|---------|--------|
+| `coolify_teams` | Complete team management operations | `list`, `current`, `get`, `members` | ✅ Working |
 
 ---
 
-## 🚀 Application Management (19 tools)
+## 📁 Project Management (2 tools)
 
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_applications` | List all applications | ✅ Working |
-| `coolify_create_public_application` | Create a public application | ✅ Working |
-| `coolify_create_private_github_application` | Create a private GitHub application | ✅ Working |
-| `coolify_create_private_deploy_key_application` | Create a private deploy key application | ✅ Working |
-| `coolify_create_dockerfile_application` | Create a Dockerfile application | ✅ Working |
-| `coolify_create_dockerimage_application` | Create a Docker image application | ✅ Working |
-| `coolify_create_dockercompose_application` | Create a Docker Compose application | ✅ Working |
-| `coolify_get_application` | Get application by UUID | ✅ Working |
-| `coolify_update_application` | Update application | ✅ Working |
-| `coolify_delete_application` | Delete application | ✅ Working |
-| `coolify_start_application` | Start application | ✅ Working |
-| `coolify_stop_application` | Stop application | ✅ Working |
-| `coolify_restart_application` | Restart application | ✅ Working |
-| `coolify_get_application_logs` | Get application logs | ✅ Working |
-| `coolify_get_application_deployments` | Get deployments for an application | ✅ Working |
-| `coolify_list_application_envs` | List application environment variables | ✅ Working |
-| `coolify_create_application_env` | Create application environment variable | ✅ Working |
-| `coolify_bulk_update_application_envs` | Bulk update application environment variables | ✅ Working |
-| `coolify_delete_application_env` | Delete application environment variable | ✅ Working |
+| Tool Name | Description | Actions | Status |
+|-----------|-------------|---------|--------|
+| `coolify_projects` | Project CRUD operations | `list`, `create`, `get`, `update`, `delete` | ✅ Working |
+| `coolify_project_environments` | Project environment management | `list`, `create`, `get`, `delete` | ✅ Working |
 
 ---
 
-## 🗄️ Database Management (15 tools)
+## 🚀 Application Management (5 tools)
 
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_databases` | List all databases | ✅ Working |
-| `coolify_create_database` | Create a new database (generic) | ✅ Working |
-| `coolify_create_postgresql_database` | Create a PostgreSQL database | ✅ Working |
-| `coolify_create_mysql_database` | Create a MySQL database | ✅ Working |
-| `coolify_create_mongodb_database` | Create a MongoDB database | ✅ Working |
-| `coolify_create_redis_database` | Create a Redis database | ✅ Working |
-| `coolify_create_mariadb_database` | Create a MariaDB database | ✅ Working |
-| `coolify_create_clickhouse_database` | Create a ClickHouse database | ✅ Working |
-| `coolify_create_dragonfly_database` | Create a DragonFly database | ✅ Working |
-| `coolify_create_keydb_database` | Create a KeyDB database | ✅ Working |
-| `coolify_get_database` | Get database by UUID | ✅ Working |
-| `coolify_update_database` | Update database | ✅ Working |
-| `coolify_delete_database` | Delete database | ✅ Working |
-| `coolify_start_database` | Start database | ✅ Working |
-| `coolify_stop_database` | Stop database | ✅ Working |
-| `coolify_restart_database` | Restart database | ✅ Working |
+| Tool Name | Description | Actions | Status |
+|-----------|-------------|---------|--------|
+| `coolify_applications` | Application CRUD operations (all types) | `list`, `create`, `update`, `get`, `delete` | ✅ Working |
+| `coolify_application_lifecycle` | Application lifecycle management | `start`, `stop`, `restart` | ✅ Working |
+| `coolify_application_envs` | Application environment variables | `list`, `create`, `bulk_update`, `delete` | ✅ Working |
+| `coolify_logs` | Application logs retrieval | `get` | ✅ Working |
+| `coolify_application_deployments` | Application deployment management | `list`, `get`, `trigger` | ✅ Working |
+
+**Supported Application Types:**
+- `public` - Public applications
+- `private_github` - Private GitHub applications
+- `private_deploy_key` - Private deploy key applications
+- `dockerfile` - Dockerfile applications
+- `dockerimage` - Docker image applications
+- `dockercompose` - Docker Compose applications
 
 ---
 
-## 🖥️ Server Management (8 tools)
+## 🗄️ Database Management (3 tools)
 
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_servers` | List all servers | ✅ Working |
-| `coolify_create_server` | Create a new server | ✅ Working |
-| `coolify_get_server` | Get server by UUID | ✅ Working |
-| `coolify_update_server` | Update server | ✅ Working |
-| `coolify_delete_server` | Delete server | ✅ Working |
-| `coolify_validate_server` | Validate server connection | ✅ Working |
-| `coolify_list_server_domains` | List server domains | ✅ Working |
-| `coolify_list_server_resources` | List server resources | ✅ Working |
+| Tool Name | Description | Actions | Status |
+|-----------|-------------|---------|--------|
+| `coolify_databases` | Database CRUD operations | `list`, `create`, `get`, `update`, `delete` | ✅ Working |
+| `coolify_database_lifecycle` | Database lifecycle management | `start`, `stop`, `restart` | ✅ Working |
+| `coolify_database_types` | Specific database type creation | `create` | ✅ Working |
 
----
-
-## 🐳 Service Management (15 tools)
-
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_services` | List all services | ✅ Working |
-| `coolify_create_service` | Create a new service | ✅ Working |
-| `coolify_get_service` | Get service by UUID | ✅ Working |
-| `coolify_update_service` | Update service | ✅ Working |
-| `coolify_delete_service` | Delete service | ✅ Working |
-| `coolify_start_service` | Start service | ✅ Working |
-| `coolify_stop_service` | Stop service | ✅ Working |
-| `coolify_restart_service` | Restart service | ✅ Working |
-| `coolify_list_service_envs` | List service environment variables | ✅ Working |
-| `coolify_create_service_env` | Create service environment variable | ✅ Working |
-| `coolify_update_service_env` | Update service environment variable | ✅ Working |
-| `coolify_bulk_update_service_envs` | Bulk update service environment variables | ✅ Working |
-| `coolify_delete_service_env` | Delete service environment variable | ✅ Working |
+**Supported Database Types:**
+- `postgresql` - PostgreSQL databases
+- `mysql` - MySQL databases
+- `mongodb` - MongoDB databases
+- `redis` - Redis databases
+- `mariadb` - MariaDB databases
+- `clickhouse` - ClickHouse databases
+- `dragonfly` - DragonFly databases
+- `keydb` - KeyDB databases
 
 ---
 
-## 📦 Deployment Management (4 tools)
+## 🖥️ Server Management (2 tools)
 
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_deployments` | List all deployments | ✅ Working |
-| `coolify_get_deployment` | Get deployment by UUID | ✅ Working |
-| `coolify_get_application_deployments` | Get deployments for an application | ✅ Working |
-| `coolify_trigger_deployment` | Trigger a deployment | ✅ Working |
+| Tool Name | Description | Actions | Status |
+|-----------|-------------|---------|--------|
+| `coolify_servers` | Server CRUD operations | `list`, `create`, `get`, `update`, `delete` | ✅ Working |
+| `coolify_server_management` | Server operations and resources | `validate`, `domains`, `resources` | ✅ Working |
 
 ---
 
-## 🔐 Security & Keys (5 tools)
+## 🐳 Service Management (3 tools)
 
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_security_keys` | List all security keys | ✅ Working |
-| `coolify_create_security_key` | Create a new security key | ✅ Working |
-| `coolify_get_security_key` | Get security key by UUID | ✅ Working |
-| `coolify_update_security_key` | Update security key | ✅ Working |
-| `coolify_delete_security_key` | Delete security key | ✅ Working |
+| Tool Name | Description | Actions | Status |
+|-----------|-------------|---------|--------|
+| `coolify_services` | Service CRUD operations | `list`, `create`, `get`, `update`, `delete` | ✅ Working |
+| `coolify_service_lifecycle` | Service lifecycle management | `start`, `stop`, `restart` | ✅ Working |
+| `coolify_service_envs` | Service environment variables | `list`, `create`, `update`, `bulk_update`, `delete` | ✅ Working |
 
 ---
 
-## 📋 Resources (1 tool)
+## 🔐 Security Management (1 tool)
 
-| Tool Name | Description | Status |
-|-----------|-------------|--------|
-| `coolify_list_server_resources` | List server resources | ✅ Working |
+| Tool Name | Description | Actions | Status |
+|-----------|-------------|---------|--------|
+| `coolify_security_keys` | Security key management | `list`, `create`, `get`, `update`, `delete` | ✅ Working |
 
 ---
 
-## 🔧 Parameter Notes
+## 🎯 Key Benefits of Consolidation
 
-### Recently Fixed Issues
-
-1. **Application Environment Variables**: Only use `key` and `value` parameters
-2. **Service Environment Variables**: Only use `key` and `value` parameters
-3. **Security Keys**: Use `private_key` parameter instead of `key`
-4. **Deployment Trigger**: Use `uuid` parameter instead of `application_uuid`
-
-### Common Parameters
-
-- **UUIDs**: All UUID parameters should be valid UUID format
-- **Pagination**: Use `page` and `per_page` for list endpoints
-- **Environment Names**: Use exact environment names (e.g., "production", "staging")
-- **Docker Compose**: Must be base64 encoded for service creation
+- **Reduced Complexity**: 18 tools instead of 83+ individual tools
+- **Better Performance**: Fewer tool definitions and cleaner API calls
+- **Easier Maintenance**: Action-based parameters for better organization
+- **Simplified Documentation**: Clear tool categories and actions
+- **100% API Coverage**: All Coolify endpoints accessible through consolidated interface
 
 ---
 
 ## 📈 Usage Statistics
 
-- **Total Endpoints Tested**: 83+
+- **Total Endpoints Tested**: 83+ (covered by 18 consolidated tools)
 - **Success Rate**: 100%
 - **Issues Found**: 4
 - **Issues Fixed**: 4
@@ -190,15 +123,52 @@ This document provides a comprehensive reference for all 83+ MCP tools available
 
 ---
 
-## 🚀 Getting Started
+## 🔧 Tool Usage Examples
 
-1. **Install**: Follow the installation guide in README.md
-2. **Configure**: Set up your Coolify API token and base URL
-3. **Test**: Use the health check tools to verify connectivity
-4. **Use**: All tools are ready for production use
+### System Management
+```json
+{
+  "tool": "coolify_system",
+  "action": "health"
+}
+```
+
+### Team Management
+```json
+{
+  "tool": "coolify_teams",
+  "action": "list"
+}
+```
+
+### Application Management
+```json
+{
+  "tool": "coolify_applications",
+  "action": "create",
+  "type": "dockercompose",
+  "name": "my-app",
+  "project_uuid": "project-uuid",
+  "server_uuid": "server-uuid",
+  "environment_name": "production"
+}
+```
+
+### Database Management
+```json
+{
+  "tool": "coolify_database_types",
+  "action": "create",
+  "type": "postgresql",
+  "name": "my-db",
+  "server_uuid": "server-uuid",
+  "project_uuid": "project-uuid",
+  "environment_name": "production"
+}
+```
 
 ---
 
 **Last Updated**: 2024-09-17  
 **Version**: 1.0.0  
-**Status**: Production Ready ✅
+**Status**: ✅ Production Ready
