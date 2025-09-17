@@ -50,7 +50,7 @@
    docker build -t coolify-mcp-server:latest .
    
    # Deploy with docker-compose
-   docker-compose -f docker-compose.coolify.yaml up -d
+   docker-compose up -d
    ```
 
 ## Environment Variables
@@ -60,7 +60,7 @@
 | `COOLIFY_API_TOKEN` | Your Coolify API token | Yes | - |
 | `COOLIFY_BASE_URL` | Coolify instance URL | No | `https://app.coolify.io/api/v1` |
 | `LOG_LEVEL` | Logging level | No | `info` |
-| `SERVICE_FQDN` | Domain for the service | Yes | Set by Coolify |
+| `SERVICE_FQDN_COOLIFY_MCP_SERVER_3000` | Domain for the service | Yes | Set by Coolify |
 
 ## Post-Deployment
 

@@ -1,78 +1,19 @@
-version: '3.8'
-
 services:
   coolify-mcp-server:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: coolify-mcp-server
-    restart: unless-stopped
-    
     environment:
       - NODE_ENV=production
+      - PORT=3000
+      - SERVICE_FQDN_COOLIFY_MCP_SERVER_3000
       - COOLIFY_API_TOKEN=${COOLIFY_API_TOKEN}
       - COOLIFY_BASE_URL=${COOLIFY_BASE_URL:-https://app.coolify.io/api/v1}
-      - PORT=3000
       - LOG_LEVEL=${LOG_LEVEL:-info}
-    
-    ports:
-      - "3000:3000"
-    
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-    
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-    
-    networks:
-      - coolify
-    
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.coolify-mcp-server.rule=Host(`${SERVICE_FQDN}`)"
-      - "traefik.http.routers.coolify-mcp-server.entrypoints=websecure"
-      - "traefik.http.routers.coolify-mcp-server.tls=true"
-      - "traefik.http.routers.coolify-mcp-server.tls.certresolver=letsencrypt"
-      - "traefik.http.services.coolify-mcp-server.loadbalancer.server.port=3000"
-      
-      # HTTP to HTTPS redirect
-      - "traefik.http.routers.coolify-mcp-server-http.rule=Host(`${SERVICE_FQDN}`)"
-      - "traefik.http.routers.coolify-mcp-server-http.entrypoints=web"
-      - "traefik.http.routers.coolify-mcp-server-http.middlewares=redirect-to-https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
-      
-      # Security headers
-      - "traefik.http.middlewares.security-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
-      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.Strict-Transport-Security=max-age=31536000; includeSubDomains"
-      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-Content-Type-Options=nosniff"
-      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-Frame-Options=DENY"
-      - "traefik.http.middlewares.security-headers.headers.customresponseheaders.X-XSS-Protection=1; mode=block"
-      - "traefik.http.routers.coolify-mcp-server.middlewares=security-headers"
-      
-      # CORS headers
-      - "traefik.http.middlewares.cors.headers.accesscontrolallowmethods=GET,POST,PUT,DELETE,OPTIONS"
-      - "traefik.http.middlewares.cors.headers.accesscontrolallowheaders=Content-Type,Authorization,X-Requested-With"
-      - "traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=https://app.coolify.io,https://coolify.io"
-      - "traefik.http.routers.coolify-mcp-server.middlewares=cors"
-    
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-    
-    security_opt:
-      - no-new-privileges:true
-    user: "1001:1001"
-    read_only: true
-    tmpfs:
-      - /tmp:noexec,nosuid,size=100m
-
-networks:
-  coolify:
-    external: true
+      - type: bind
+        source: '/cool/coolify-mcp-server/logs'
+        target: '/app/logs'
+      - type: bind
+        source: '/cool/coolify-mcp-server/tmp'
+        target: '/app/tmp'
