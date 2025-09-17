@@ -1,11 +1,11 @@
 {
-  "name": "coolify-mcp-server",
+  "name": "coolifymcp",
   "version": "1.0.0",
   "description": "Consolidated Model Context Protocol (MCP) server with 18 streamlined tools providing 100% coverage of Coolify API endpoints for AI assistants",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "coolify-mcp-server": "./dist/index.js"
+    "coolifymcp": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -58,12 +58,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HowieDuhzit/CoolifyMCP.git"
+    "url": "https://github.com/howieduhzit/coolifymcp.git"
   },
   "bugs": {
-    "url": "https://github.com/HowieDuhzit/CoolifyMCP/issues"
+    "url": "https://github.com/howieduhzit/coolifymcp/issues"
   },
-  "homepage": "https://github.com/HowieDuhzit/CoolifyMCP#readme",
+  "homepage": "https://github.com/howieduhzit/coolifymcp#readme",
   "files": [
     "dist/",
     "README.md",

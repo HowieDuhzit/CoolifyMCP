@@ -1,11 +1,11 @@
-# Coolify MCP Server
+# CoolifyMCP
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)](https://www.docker.com/)
 
-A comprehensive **Model Context Protocol (MCP)** server that provides complete access to all Coolify API endpoints. This server enables AI assistants to interact with Coolify for managing applications, databases, servers, deployments, and more.
+A comprehensive **Model Context Protocol (MCP)** server that provides complete access to all Coolify API endpoints. CoolifyMCP enables AI assistants to interact with Coolify for managing applications, databases, servers, deployments, and more.
 
 ## 📖 Table of Contents
 

@@ -1,0 +1,48 @@
+# Coolify MCP Server - Docker Compose Template
+# Copy this file and customize the environment variables for your setup
+
+version: '3.8'
+
+services:
+  coolify-mcp:
+    image: ghcr.io/howieduhzit/coolifymcp:latest
+    container_name: coolify-mcp-server
+    environment:
+      # Required: Your Coolify API token
+      - COOLIFY_API_TOKEN=${COOLIFY_API_TOKEN}
+      
+      # Optional: Your Coolify instance URL (defaults to app.coolify.io)
+      - COOLIFY_BASE_URL=${COOLIFY_BASE_URL:-https://app.coolify.io/api/v1}
+      
+      # Optional: Logging level
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      
+      # Production settings
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      # Optional: Mount logs directory for persistence
+      - coolify-mcp-logs:/app/logs
+      - coolify-mcp-tmp:/app/tmp
+    restart: unless-stopped
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    # Uncomment if you need to access Docker socket
+    # volumes:
+    #   - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  coolify-mcp-logs:
+    driver: local
+  coolify-mcp-tmp:
+    driver: local
+
+# Example usage:
+# 1. Copy this file to your desired location
+# 2. Create a .env file with your COOLIFY_API_TOKEN
+# 3. Run: docker-compose -f docker-compose.mcp.yml up -d
