@@ -1,9 +1,10 @@
 # CoolifyMCP
 
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=coolifymcp&config=eyJjb21tYW5kIjoibnB4IGNvb2xpZnltY3AiLCJlbnYiOnsiQ09PTElGWV9BUElfVE9LRU4iOiJ5b3VyX2Nvb2xpZnlfYXBpX3Rva2VuX2hlcmUiLCJDT09MSUZZX0JBU0VfVVJMIjoiaHR0cHM6Ly95b3VyLWNvb2xpZnktaW5zdGFuY2UuY29tL2FwaS92MSJ9fQ%3D%3D)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)](https://www.docker.com/)
 
 A comprehensive **Model Context Protocol (MCP)** server that provides complete access to all [Coolify](https://github.com/coollabsio/coolify) API endpoints. CoolifyMCP enables AI assistants to interact with Coolify for managing applications, databases, servers, deployments, and more.
 
