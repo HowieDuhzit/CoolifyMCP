@@ -43,15 +43,63 @@ A comprehensive **Model Context Protocol (MCP)** server that provides complete a
 
 ## 🚀 Quick Start
 
-### NPM Installation (Recommended)
-```bash
-# Install and run with npx (no installation needed)
-npx coolifymcp
+### Install in Your AI IDE
 
-# Or install globally
-npm install -g coolifymcp
-coolifymcp
+CoolifyMCP works with all major AI IDEs that support the Model Context Protocol (MCP). Choose your preferred IDE:
+
+#### **Cursor IDE** (Recommended)
+1. Open Cursor and go to Settings → Extensions → MCP
+2. Add this configuration to your `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "coolifymcp": {
+      "command": "npx",
+      "args": ["coolifymcp"],
+      "env": {
+        "COOLIFY_API_TOKEN": "your_coolify_api_token_here",
+        "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"
+      }
+    }
+  }
+}
 ```
+
+#### **Claude Desktop**
+1. Open Claude Desktop settings
+2. Add this configuration to your MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "coolifymcp": {
+      "command": "npx",
+      "args": ["coolifymcp"],
+      "env": {
+        "COOLIFY_API_TOKEN": "your_coolify_api_token_here",
+        "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"
+      }
+    }
+  }
+}
+```
+
+#### **JetBrains AI Assistant**
+1. Open your JetBrains IDE (IntelliJ, WebStorm, etc.)
+2. Go to Settings → Tools → AI Assistant → Model Context Protocol (MCP)
+3. Click "Add" and configure:
+   - **Name**: `coolifymcp`
+   - **Command**: `npx`
+   - **Arguments**: `["coolifymcp"]`
+   - **Environment Variables**:
+     - `COOLIFY_API_TOKEN`: `your_coolify_api_token_here`
+     - `COOLIFY_BASE_URL`: `https://your-coolify-instance.com/api/v1`
+
+#### **Other MCP-Compatible IDEs**
+- **LibreChat**: Add MCP server configuration in settings
+- **Klavis AI**: Configure in your platform's MCP settings
+- **Custom MCP Clients**: Use the same configuration format
 
 ### Local Development
 ```bash
@@ -123,8 +171,16 @@ COOLIFY_API_TOKEN="your_token_here" COOLIFY_BASE_URL="https://your-coolify-insta
 
 ### MCP Client Configuration
 
-Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
+The configuration format is consistent across all MCP-compatible IDEs. Here are the common locations:
 
+#### **Configuration File Locations:**
+- **Cursor**: `~/.cursor/mcp.json`
+- **Claude Desktop**: MCP settings in the app
+- **JetBrains**: Settings → Tools → AI Assistant → MCP
+- **LibreChat**: Settings → MCP Servers
+- **Custom Clients**: Refer to your client's documentation
+
+#### **Standard Configuration:**
 ```json
 {
   "mcpServers": {
@@ -139,6 +195,10 @@ Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
   }
 }
 ```
+
+#### **Environment Variables:**
+- `COOLIFY_API_TOKEN` (required): Your Coolify API token
+- `COOLIFY_BASE_URL` (optional): Your Coolify instance URL (defaults to `https://app.coolify.io/api/v1`)
 
 ## 🎯 Available Tools
 
