@@ -94,6 +94,19 @@ export const getTools = (): Tool[] => [
     },
   },
   {
+    name: 'coolify_update_project',
+    description: 'Update project',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Project UUID' },
+        name: { type: 'string', description: 'Project name' },
+        description: { type: 'string', description: 'Project description' },
+      },
+      required: ['uuid'],
+    },
+  },
+  {
     name: 'coolify_delete_project',
     description: 'Delete project',
     inputSchema: {
@@ -107,6 +120,41 @@ export const getTools = (): Tool[] => [
   {
     name: 'coolify_get_project_environment',
     description: 'Get project environment details',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Project UUID' },
+        environment_name_or_uuid: { type: 'string', description: 'Environment name or UUID' },
+      },
+      required: ['uuid', 'environment_name_or_uuid'],
+    },
+  },
+  {
+    name: 'coolify_list_project_environments',
+    description: 'List all environments in a project',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Project UUID' },
+      },
+      required: ['uuid'],
+    },
+  },
+  {
+    name: 'coolify_create_project_environment',
+    description: 'Create environment in project',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Project UUID' },
+        name: { type: 'string', description: 'Environment name' },
+      },
+      required: ['uuid', 'name'],
+    },
+  },
+  {
+    name: 'coolify_delete_project_environment',
+    description: 'Delete environment by name or UUID (environment must be empty)',
     inputSchema: {
       type: 'object',
       properties: {
@@ -175,6 +223,91 @@ export const getTools = (): Tool[] => [
     },
   },
   {
+    name: 'coolify_create_private_deploy_key_application',
+    description: 'Create a private application using deploy key',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        project_uuid: { type: 'string', description: 'Project UUID' },
+        server_uuid: { type: 'string', description: 'Server UUID' },
+        environment_name: { type: 'string', description: 'Environment name' },
+        private_key_uuid: { type: 'string', description: 'Private key UUID' },
+        git_repository: { type: 'string', description: 'Git repository URL' },
+        git_branch: { type: 'string', description: 'Git branch', default: 'main' },
+        build_pack: { 
+          type: 'string', 
+          enum: ['nixpacks', 'static', 'dockerfile', 'dockercompose'],
+          description: 'Build pack type' 
+        },
+        ports_exposes: { type: 'string', description: 'Port configuration' },
+        name: { type: 'string', description: 'Application name' },
+        description: { type: 'string', description: 'Application description' },
+        destination_uuid: { type: 'string', description: 'Destination UUID' },
+        domains: { type: 'string', description: 'Domains configuration' },
+        git_commit_sha: { type: 'string', description: 'Git commit SHA' },
+        docker_registry_image_name: { type: 'string', description: 'Docker registry image name' },
+        docker_registry_image_tag: { type: 'string', description: 'Docker registry image tag' },
+        is_static: { type: 'boolean', description: 'Is static application' },
+        static_image: { type: 'string', description: 'Static image' },
+        install_command: { type: 'string', description: 'Install command' },
+        build_command: { type: 'string', description: 'Build command' },
+        start_command: { type: 'string', description: 'Start command' },
+        ports_mappings: { type: 'string', description: 'Port mappings' },
+        base_directory: { type: 'string', description: 'Base directory' },
+        publish_directory: { type: 'string', description: 'Publish directory' },
+        health_check_enabled: { type: 'boolean', description: 'Enable health checks' },
+        health_check_path: { type: 'string', description: 'Health check path' },
+        health_check_port: { type: 'string', description: 'Health check port' },
+        health_check_host: { type: 'string', description: 'Health check host' },
+        health_check_method: { type: 'string', description: 'Health check method' },
+        health_check_return_code: { type: 'number', description: 'Health check return code' },
+        health_check_scheme: { type: 'string', description: 'Health check scheme' },
+        health_check_response_text: { type: 'string', description: 'Health check response text' },
+        health_check_interval: { type: 'number', description: 'Health check interval' },
+        health_check_timeout: { type: 'number', description: 'Health check timeout' },
+        health_check_retries: { type: 'number', description: 'Health check retries' },
+        health_check_start_period: { type: 'number', description: 'Health check start period' },
+        limits_memory: { type: 'string', description: 'Memory limits' },
+        limits_memory_swap: { type: 'string', description: 'Memory swap limits' },
+        limits_memory_swappiness: { type: 'number', description: 'Memory swappiness' },
+        limits_memory_reservation: { type: 'string', description: 'Memory reservation' },
+        limits_cpus: { type: 'string', description: 'CPU limits' },
+        limits_cpuset: { type: 'string', description: 'CPU set limits' },
+        limits_cpu_shares: { type: 'number', description: 'CPU shares' },
+        custom_labels: { type: 'string', description: 'Custom labels' },
+        custom_docker_run_options: { type: 'string', description: 'Custom Docker run options' },
+        post_deployment_command: { type: 'string', description: 'Post deployment command' },
+        post_deployment_command_container: { type: 'string', description: 'Post deployment command container' },
+        pre_deployment_command: { type: 'string', description: 'Pre deployment command' },
+        pre_deployment_command_container: { type: 'string', description: 'Pre deployment command container' },
+        manual_webhook_secret_github: { type: 'string', description: 'GitHub webhook secret' },
+        manual_webhook_secret_gitlab: { type: 'string', description: 'GitLab webhook secret' },
+        manual_webhook_secret_bitbucket: { type: 'string', description: 'Bitbucket webhook secret' },
+        manual_webhook_secret_gitea: { type: 'string', description: 'Gitea webhook secret' },
+        redirect: { type: 'string', description: 'Redirect configuration' },
+        instant_deploy: { type: 'boolean', description: 'Instant deploy' },
+        dockerfile: { type: 'string', description: 'Dockerfile content' },
+        docker_compose_location: { type: 'string', description: 'Docker Compose location' },
+        docker_compose_raw: { type: 'string', description: 'Docker Compose raw content' },
+        docker_compose_custom_start_command: { type: 'string', description: 'Docker Compose custom start command' },
+        docker_compose_custom_build_command: { type: 'string', description: 'Docker Compose custom build command' },
+        docker_compose_domains: { 
+          type: 'array', 
+          items: { type: 'string' },
+          description: 'Docker Compose domains' 
+        },
+        watch_paths: { type: 'string', description: 'Watch paths' },
+        use_build_server: { type: 'boolean', description: 'Use build server' },
+        is_http_basic_auth_enabled: { type: 'boolean', description: 'Enable HTTP basic auth' },
+        http_basic_auth_username: { type: 'string', description: 'HTTP basic auth username' },
+        http_basic_auth_password: { type: 'string', description: 'HTTP basic auth password' },
+        connect_to_docker_network: { type: 'boolean', description: 'Connect to Docker network' },
+        force_domain_override: { type: 'boolean', description: 'Force domain override' },
+      },
+      required: ['project_uuid', 'server_uuid', 'environment_name', 'private_key_uuid', 'git_repository', 'build_pack', 'ports_exposes'],
+    },
+  },
+  {
     name: 'coolify_create_dockerfile_application',
     description: 'Create a Dockerfile application',
     inputSchema: {
@@ -207,6 +340,21 @@ export const getTools = (): Tool[] => [
         name: { type: 'string', description: 'Application name' },
       },
       required: ['project_uuid', 'server_uuid', 'environment_name', 'docker_registry_image_name', 'ports_exposes'],
+    },
+  },
+  {
+    name: 'coolify_create_dockercompose_application',
+    description: 'Create a Docker Compose application',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        project_uuid: { type: 'string', description: 'Project UUID' },
+        server_uuid: { type: 'string', description: 'Server UUID' },
+        environment_name: { type: 'string', description: 'Environment name' },
+        docker_compose_raw: { type: 'string', description: 'Docker Compose configuration (base64 encoded)' },
+        name: { type: 'string', description: 'Application name' },
+      },
+      required: ['project_uuid', 'server_uuid', 'environment_name', 'docker_compose_raw'],
     },
   },
   {
@@ -312,7 +460,6 @@ export const getTools = (): Tool[] => [
         uuid: { type: 'string', description: 'Application UUID' },
         key: { type: 'string', description: 'Environment variable key' },
         value: { type: 'string', description: 'Environment variable value' },
-        is_secret: { type: 'boolean', description: 'Whether the variable is secret', default: false },
       },
       required: ['uuid', 'key', 'value'],
     },
@@ -332,7 +479,6 @@ export const getTools = (): Tool[] => [
             properties: {
               key: { type: 'string' },
               value: { type: 'string' },
-              is_secret: { type: 'boolean', default: false },
             },
             required: ['key', 'value'],
           },
@@ -718,6 +864,90 @@ export const getTools = (): Tool[] => [
         uuid: { type: 'string', description: 'Service UUID' },
       },
       required: ['uuid'],
+    },
+  },
+
+  // Service Environment Variables Management
+  {
+    name: 'coolify_list_service_envs',
+    description: 'List all environment variables for a service',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Service UUID' },
+      },
+      required: ['uuid'],
+    },
+  },
+  {
+    name: 'coolify_create_service_env',
+    description: 'Create environment variable for a service',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Service UUID' },
+        key: { type: 'string', description: 'Environment variable key' },
+        value: { type: 'string', description: 'Environment variable value' },
+      },
+      required: ['uuid', 'key', 'value'],
+    },
+  },
+  {
+    name: 'coolify_update_service_env',
+    description: 'Update environment variable for a service',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Service UUID' },
+        key: { type: 'string', description: 'Environment variable key' },
+        value: { type: 'string', description: 'Environment variable value' },
+        is_preview: { type: 'boolean', description: 'Is preview variable', default: false },
+        is_build_time: { type: 'boolean', description: 'Is build time variable', default: false },
+        is_literal: { type: 'boolean', description: 'Is literal variable', default: false },
+        is_multiline: { type: 'boolean', description: 'Is multiline variable', default: false },
+        is_shown_once: { type: 'boolean', description: 'Is shown once variable', default: false },
+      },
+      required: ['uuid', 'key', 'value'],
+    },
+  },
+  {
+    name: 'coolify_bulk_update_service_envs',
+    description: 'Bulk update environment variables for a service',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Service UUID' },
+        envs: { 
+          type: 'array', 
+          description: 'Array of environment variables',
+          items: {
+            type: 'object',
+            properties: {
+              key: { type: 'string' },
+              value: { type: 'string' },
+              is_preview: { type: 'boolean', default: false },
+              is_build_time: { type: 'boolean', default: false },
+              is_literal: { type: 'boolean', default: false },
+              is_multiline: { type: 'boolean', default: false },
+              is_shown_once: { type: 'boolean', default: false },
+            },
+            required: ['key', 'value'],
+          },
+        },
+      },
+      required: ['uuid', 'envs'],
+    },
+  },
+  {
+    name: 'coolify_delete_service_env',
+    description: 'Delete environment variable from a service',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        uuid: { type: 'string', description: 'Service UUID' },
+        env_uuid: { type: 'string', description: 'Environment variable UUID' },
+      },
+      required: ['uuid', 'env_uuid'],
     },
   },
 

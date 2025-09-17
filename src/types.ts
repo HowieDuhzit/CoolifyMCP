@@ -22,6 +22,7 @@ export interface PaginationArgs {
 }
 
 export interface ProjectArgs extends PaginationArgs {
+  uuid?: string;
   name?: string;
   description?: string;
 }
@@ -37,6 +38,7 @@ export interface ApplicationArgs extends PaginationArgs {
   ports_exposes?: string;
   name?: string;
   description?: string;
+  docker_compose_raw?: string;
 }
 
 export interface DatabaseArgs extends PaginationArgs {
@@ -85,8 +87,12 @@ export interface EnvironmentVariableArgs {
   uuid?: string;
   key?: string;
   value?: string;
-  is_secret?: boolean;
   env_uuid?: string;
+  is_preview?: boolean;
+  is_build_time?: boolean;
+  is_literal?: boolean;
+  is_multiline?: boolean;
+  is_shown_once?: boolean;
 }
 
 export interface BulkEnvironmentVariablesArgs {
@@ -94,7 +100,11 @@ export interface BulkEnvironmentVariablesArgs {
   envs: Array<{
     key: string;
     value: string;
-    is_secret?: boolean;
+    is_preview?: boolean;
+    is_build_time?: boolean;
+    is_literal?: boolean;
+    is_multiline?: boolean;
+    is_shown_once?: boolean;
   }>;
 }
 

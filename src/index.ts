@@ -107,10 +107,18 @@ class CoolifyMCPServer {
         return await this.handlers.createProject(args);
       case 'coolify_get_project':
         return await this.handlers.getProject(args.uuid);
+      case 'coolify_update_project':
+        return await this.handlers.updateProject(args);
       case 'coolify_delete_project':
         return await this.handlers.deleteProject(args.uuid);
       case 'coolify_get_project_environment':
         return await this.handlers.getProjectEnvironment(args.uuid, args.environment_name_or_uuid);
+      case 'coolify_list_project_environments':
+        return await this.handlers.listProjectEnvironments(args.uuid);
+      case 'coolify_create_project_environment':
+        return await this.handlers.createProjectEnvironment(args);
+      case 'coolify_delete_project_environment':
+        return await this.handlers.deleteProjectEnvironment(args.uuid, args.environment_name_or_uuid);
       
       // Application Management
       case 'coolify_list_applications':
@@ -119,10 +127,14 @@ class CoolifyMCPServer {
         return await this.handlers.createPublicApplication(args);
       case 'coolify_create_private_github_application':
         return await this.handlers.createPrivateGithubApplication(args);
+      case 'coolify_create_private_deploy_key_application':
+        return await this.handlers.createPrivateDeployKeyApplication(args);
       case 'coolify_create_dockerfile_application':
         return await this.handlers.createDockerfileApplication(args);
       case 'coolify_create_dockerimage_application':
         return await this.handlers.createDockerimageApplication(args);
+      case 'coolify_create_dockercompose_application':
+        return await this.handlers.createDockercomposeApplication(args);
       case 'coolify_get_application':
         return await this.handlers.getApplication(args.uuid);
       case 'coolify_update_application':
@@ -209,6 +221,18 @@ class CoolifyMCPServer {
         return await this.handlers.stopService(args.uuid);
       case 'coolify_restart_service':
         return await this.handlers.restartService(args.uuid);
+      
+      // Service Environment Variables Management
+      case 'coolify_list_service_envs':
+        return await this.handlers.listServiceEnvs(args.uuid);
+      case 'coolify_create_service_env':
+        return await this.handlers.createServiceEnv(args);
+      case 'coolify_update_service_env':
+        return await this.handlers.updateServiceEnv(args);
+      case 'coolify_bulk_update_service_envs':
+        return await this.handlers.bulkUpdateServiceEnvs(args);
+      case 'coolify_delete_service_env':
+        return await this.handlers.deleteServiceEnv(args.uuid, args.env_uuid);
       
       // Deployment Management
       case 'coolify_list_deployments':

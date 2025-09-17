@@ -68,6 +68,14 @@ export class CoolifyHandlers {
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
   }
 
+  async updateProject(args: ProjectArgs) {
+    const response = await this.apiClient.patch(`/projects/${args.uuid}`, {
+      name: args.name,
+      description: args.description,
+    });
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
   async deleteProject(uuid: string) {
     await this.apiClient.delete(`/projects/${uuid}`);
     return { content: [{ type: 'text', text: 'Project deleted successfully' }] };
@@ -75,6 +83,23 @@ export class CoolifyHandlers {
 
   async getProjectEnvironment(uuid: string, environmentNameOrUuid: string) {
     const response = await this.apiClient.get(`/projects/${uuid}/${environmentNameOrUuid}`);
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
+  async listProjectEnvironments(uuid: string) {
+    const response = await this.apiClient.get(`/projects/${uuid}/environments`);
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
+  async createProjectEnvironment(args: ProjectArgs) {
+    const response = await this.apiClient.post(`/projects/${args.uuid}/environments`, {
+      name: args.name,
+    });
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
+  async deleteProjectEnvironment(uuid: string, environmentNameOrUuid: string) {
+    const response = await this.apiClient.delete(`/projects/${uuid}/environments/${environmentNameOrUuid}`);
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
   }
 
@@ -95,6 +120,11 @@ export class CoolifyHandlers {
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
   }
 
+  async createPrivateDeployKeyApplication(args: ApplicationArgs) {
+    const response = await this.apiClient.post('/applications/private-deploy-key', args);
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
   async createDockerfileApplication(args: ApplicationArgs) {
     const response = await this.apiClient.post('/applications/dockerfile', args);
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
@@ -102,6 +132,11 @@ export class CoolifyHandlers {
 
   async createDockerimageApplication(args: ApplicationArgs) {
     const response = await this.apiClient.post('/applications/dockerimage', args);
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
+  async createDockercomposeApplication(args: ApplicationArgs) {
+    const response = await this.apiClient.post('/applications/dockercompose', args);
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
   }
 
@@ -153,7 +188,6 @@ export class CoolifyHandlers {
     const response = await this.apiClient.post(`/applications/${args.uuid}/envs`, {
       key: args.key,
       value: args.value,
-      is_secret: args.is_secret || false,
     });
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
   }
@@ -344,6 +378,45 @@ export class CoolifyHandlers {
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
   }
 
+  // Service Environment Variables Management
+  async listServiceEnvs(uuid: string) {
+    const response = await this.apiClient.get(`/services/${uuid}/envs`);
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
+  async createServiceEnv(args: EnvironmentVariableArgs) {
+    const response = await this.apiClient.post(`/services/${args.uuid}/envs`, {
+      key: args.key,
+      value: args.value,
+    });
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
+  async updateServiceEnv(args: EnvironmentVariableArgs) {
+    const response = await this.apiClient.patch(`/services/${args.uuid}/envs`, {
+      key: args.key,
+      value: args.value,
+      is_preview: args.is_preview || false,
+      is_build_time: args.is_build_time || false,
+      is_literal: args.is_literal || false,
+      is_multiline: args.is_multiline || false,
+      is_shown_once: args.is_shown_once || false,
+    });
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
+  async bulkUpdateServiceEnvs(args: BulkEnvironmentVariablesArgs) {
+    const response = await this.apiClient.patch(`/services/${args.uuid}/envs/bulk`, {
+      envs: args.envs,
+    });
+    return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
+  }
+
+  async deleteServiceEnv(uuid: string, envUuid: string) {
+    await this.apiClient.delete(`/services/${uuid}/envs/${envUuid}`);
+    return { content: [{ type: 'text', text: 'Service environment variable deleted successfully' }] };
+  }
+
   // Deployment Management
   async listDeployments(args: PaginationArgs) {
     const queryString = this.apiClient.buildQueryString(args);
@@ -363,7 +436,7 @@ export class CoolifyHandlers {
 
   async triggerDeployment(args: DeploymentArgs) {
     const response = await this.apiClient.post('/deploy', {
-      application_uuid: args.application_uuid,
+      uuid: args.application_uuid,
       force_rebuild: args.force_rebuild || false,
     });
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
@@ -380,7 +453,7 @@ export class CoolifyHandlers {
     const response = await this.apiClient.post('/security/keys', {
       name: args.name,
       description: args.description,
-      key: args.key,
+      private_key: args.key,
     });
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
   }
@@ -394,7 +467,7 @@ export class CoolifyHandlers {
     const response = await this.apiClient.patch(`/security/keys/${args.uuid}`, {
       name: args.name,
       description: args.description,
-      key: args.key,
+      private_key: args.key,
     });
     return { content: [{ type: 'text', text: JSON.stringify(response.data, null, 2) }] };
   }
