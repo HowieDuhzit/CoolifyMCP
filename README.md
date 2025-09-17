@@ -41,17 +41,31 @@ A comprehensive **Model Context Protocol (MCP)** server that provides complete a
 
 ## 🚀 Quick Start
 
+### NPM Installation (Recommended)
+```bash
+# Install and run with npx (no installation needed)
+npx coolifymcp
+
+# Or install globally
+npm install -g coolifymcp
+coolifymcp
+```
+
+### Docker Installation
+```bash
+# Run with Docker
+docker run --rm -i \
+  -e COOLIFY_API_TOKEN="your_token_here" \
+  -e COOLIFY_BASE_URL="https://your-coolify-instance.com/api/v1" \
+  howieduhzit/coolifymcp:latest
+```
+
+### Local Development
 ```bash
 # Clone and install
-git clone https://github.com/HowieDuhzit/CoolifyMCP.git
-cd CoolifyMCP
+git clone https://github.com/howieduhzit/coolifymcp.git
+cd coolifymcp
 npm install
-
-# Configure
-cp config.example.env .env
-# Edit .env with your Coolify API token
-
-# Build and run
 npm run build
 npm start
 ```
@@ -131,12 +145,34 @@ docker-compose up -d
 
 Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
 
+#### NPM Installation (Recommended)
 ```json
 {
   "mcpServers": {
-    "coolify": {
-      "command": "node",
-      "args": ["/path/to/coolify-mcp-server/dist/index.js"],
+    "coolifymcp": {
+      "command": "npx",
+      "args": ["coolifymcp"],
+      "env": {
+        "COOLIFY_API_TOKEN": "your_token_here",
+        "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"
+      }
+    }
+  }
+}
+```
+
+#### Docker Installation
+```json
+{
+  "mcpServers": {
+    "coolifymcp": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "howieduhzit/coolifymcp:latest"
+      ],
       "env": {
         "COOLIFY_API_TOKEN": "your_token_here",
         "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"
@@ -285,18 +321,19 @@ MIT License - see LICENSE file for details.
 
 ## 📚 Documentation
 
-- **[API Reference](API_REFERENCE.md)** - Complete reference for all 83+ MCP tools
-- **[Tools Reference](TOOLS_REFERENCE.md)** - Detailed documentation for all available tools
+- **[Tools Reference](TOOLS_REFERENCE.md)** - Detailed documentation for all 18 available tools
+- **[API Reference](API_REFERENCE.md)** - Complete reference for all Coolify API endpoints
+- **[MCP Catalog Installation](MCP_CATALOG_INSTALLATION.md)** - Installation guide for MCP catalog
+- **[Deployment Guide](DEPLOYMENT_GUIDE.md)** - Production deployment instructions
 - **[Troubleshooting Guide](TROUBLESHOOTING.md)** - Common issues and solutions
 - **[Changelog](CHANGELOG.md)** - Version history and changes
-- **[Production Checklist](PRODUCTION_CHECKLIST.md)** - Production deployment guide
+- **[Production Checklist](PRODUCTION_CHECKLIST.md)** - Production deployment checklist
 
 ## 📞 Support
 
 For issues and questions:
-- 📝 [Create an issue](https://github.com/HowieDuhzit/CoolifyMCP/issues) in the repository
+- 📝 [Create an issue](https://github.com/howieduhzit/coolifymcp/issues) in the repository
 - 📖 Check the [Coolify documentation](https://coolify.io/docs)
-- 🔍 Review the [API cheat sheet](apiCheetSheet.md)
 - 💬 Join the [Coolify community](https://discord.gg/coolify)
 
 
@@ -308,6 +345,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ for the Coolify community**
 
-[![GitHub stars](https://img.shields.io/github/stars/HowieDuhzit/CoolifyMCP?style=social)](https://github.com/HowieDuhzit/CoolifyMCP)
-[![GitHub forks](https://img.shields.io/github/forks/HowieDuhzit/CoolifyMCP?style=social)](https://github.com/HowieDuhzit/CoolifyMCP)
-[![GitHub issues](https://img.shields.io/github/issues/HowieDuhzit/CoolifyMCP)](https://github.com/HowieDuhzit/CoolifyMCP/issues)
+[![GitHub stars](https://img.shields.io/github/stars/howieduhzit/coolifymcp?style=social)](https://github.com/howieduhzit/coolifymcp)
+[![GitHub forks](https://img.shields.io/github/forks/howieduhzit/coolifymcp?style=social)](https://github.com/howieduhzit/coolifymcp)
+[![GitHub issues](https://img.shields.io/github/issues/howieduhzit/coolifymcp)](https://github.com/howieduhzit/coolifymcp/issues)

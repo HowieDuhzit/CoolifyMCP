@@ -1,6 +1,6 @@
 services:
   coolify-mcp-server:
-    image: 'ghcr.io/howieduhzit/coolifymcp:latest'
+    image: 'howieduhzit/coolifymcp:latest'
     environment:
       - NODE_ENV=production
       - PORT=3000

@@ -1,4 +1,4 @@
-# Production Deployment Checklist
+# CoolifyMCP - Production Checklist
 
 ## ✅ Pre-Deployment Verification
 

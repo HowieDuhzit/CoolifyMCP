@@ -1,6 +1,6 @@
-# Coolify MCP Server - Complete Tools Reference
+# CoolifyMCP - Complete Tools Reference
 
-This document provides a comprehensive reference for all 18 consolidated MCP tools available in the Coolify MCP Server.
+This document provides a comprehensive reference for all 18 consolidated MCP tools available in CoolifyMCP.
 
 ## 📊 Summary
 

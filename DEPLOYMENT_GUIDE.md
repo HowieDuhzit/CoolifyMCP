@@ -1,4 +1,4 @@
-# 🚀 Coolify MCP Server Deployment Guide
+# 🚀 CoolifyMCP Deployment Guide
 
 ## Prerequisites
 

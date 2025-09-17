@@ -1,9 +1,28 @@
-# Changelog
+# CoolifyMCP - Changelog
 
-All notable changes to the Coolify MCP Server will be documented in this file.
+All notable changes to CoolifyMCP will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.1] - 2024-12-19
+
+### Added
+- NPM package distribution via `npx coolifymcp`
+- Docker Hub MCP catalog support
+- Comprehensive installation guides
+- Streamlined documentation
+
+### Changed
+- Rebranded to "CoolifyMCP" throughout codebase
+- Updated all documentation with NPM as primary installation method
+- Consolidated documentation files
+- Removed redundant installation scripts
+
+### Fixed
+- Binary permissions for NPM package
+- Updated all GitHub repository references
+- Consistent naming across all files
 
 ## [1.0.0] - 2024-09-17
 

@@ -1,6 +1,6 @@
-# Troubleshooting Guide
+# CoolifyMCP - Troubleshooting Guide
 
-This guide helps you resolve common issues when using the Coolify MCP Server.
+This guide helps you resolve common issues when using CoolifyMCP.
 
 ## Table of Contents
 

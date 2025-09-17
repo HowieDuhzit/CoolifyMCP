@@ -1,9 +1,9 @@
 {
-  "name": "Coolify MCP Server",
+  "name": "CoolifyMCP",
   "description": "Model Context Protocol server providing 18 consolidated tools with 100% coverage of Coolify API endpoints",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "docker-compose",
-  "dockerComposeFile": "docker-compose.coolify.yaml",
+  "dockerComposeFile": "docker-compose.yaml",
   "environment": {
     "NODE_ENV": "production",
     "PORT": "3000",

@@ -1,6 +1,6 @@
-# Coolify MCP Server API Reference
+# CoolifyMCP API Reference
 
-This comprehensive documentation covers all available MCP tools in the Coolify MCP Server, providing complete access to the Coolify API through the Model Context Protocol.
+This comprehensive documentation covers all available MCP tools in CoolifyMCP, providing complete access to the Coolify API through the Model Context Protocol.
 
 ## 📊 Overview
 
