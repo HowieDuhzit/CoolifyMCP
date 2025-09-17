@@ -536,6 +536,29 @@ class CoolifyMCPServer {
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
     console.error('Coolify MCP server running on stdio');
+    
+    // Start HTTP server for health checks if running in container
+    if (process.env.NODE_ENV === 'production') {
+      this.startHealthServer();
+    }
+  }
+
+  private startHealthServer() {
+    const http = require('http');
+    const server = http.createServer((req: any, res: any) => {
+      if (req.url === '/health') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ status: 'healthy', timestamp: new Date().toISOString() }));
+      } else {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Not found' }));
+      }
+    });
+
+    const port = process.env.PORT || 3000;
+    server.listen(port, () => {
+      console.error(`Health server running on port ${port}`);
+    });
   }
 }
 

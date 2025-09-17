@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  coolify-mcp-server:
+    build: .
+    container_name: coolify-mcp-server
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - COOLIFY_API_TOKEN=${COOLIFY_API_TOKEN}
+      - COOLIFY_BASE_URL=${COOLIFY_BASE_URL}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('MCP Server is healthy')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.coolify-mcp-server.rule=Host(`coolify-mcp-server.SleepyStudio.xyz`)"
+      - "traefik.http.routers.coolify-mcp-server.tls=true"
+      - "traefik.http.routers.coolify-mcp-server.tls.certresolver=letsencrypt"
+      - "traefik.http.services.coolify-mcp-server.loadbalancer.server.port=3000"
