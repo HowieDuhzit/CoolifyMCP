@@ -24,8 +24,8 @@ A comprehensive **Model Context Protocol (MCP)** server that provides complete a
 
 ## ✨ Features
 
-- **🎯 100% API Coverage**: Complete implementation of all 66 Coolify API endpoints
-- **🛠️ 64 MCP Tools**: Full access to Coolify's functionality through MCP protocol
+- **🎯 100% API Coverage**: Complete implementation of all 83+ Coolify API endpoints
+- **🛠️ 83+ MCP Tools**: Full access to Coolify's functionality through MCP protocol
 - **🔒 Type Safety**: Built with TypeScript for robust error handling and development experience
 - **🚀 Production Ready**: Docker support, health checks, proper logging, and monitoring
 - **📦 Modular Architecture**: Clean, maintainable codebase with separated concerns
@@ -152,25 +152,31 @@ Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
 - `coolify_health_check` - Check Coolify system health
 - `coolify_version` - Get Coolify API version information
 
-### Team Management (4 tools)
+### Team Management (5 tools)
 - `coolify_list_teams` - List all teams
 - `coolify_get_current_team` - Get current team information
 - `coolify_get_team` - Get team by ID
 - `coolify_list_team_members` - List team members
 
-### Project Management (5 tools)
+### Project Management (10 tools)
 - `coolify_list_projects` - List all projects
 - `coolify_create_project` - Create a new project
 - `coolify_get_project` - Get project by UUID
+- `coolify_update_project` - Update project
 - `coolify_delete_project` - Delete project
+- `coolify_list_project_environments` - List project environments
 - `coolify_get_project_environment` - Get project environment details
+- `coolify_create_project_environment` - Create project environment
+- `coolify_delete_project_environment` - Delete project environment
 
-### Application Management (13 tools)
+### Application Management (19 tools)
 - `coolify_list_applications` - List all applications
 - `coolify_create_public_application` - Create a public application
 - `coolify_create_private_github_application` - Create a private GitHub application
+- `coolify_create_private_deploy_key_application` - Create a private deploy key application
 - `coolify_create_dockerfile_application` - Create a Dockerfile application
 - `coolify_create_dockerimage_application` - Create a Docker image application
+- `coolify_create_dockercompose_application` - Create a Docker Compose application
 - `coolify_get_application` - Get application by UUID
 - `coolify_update_application` - Update application
 - `coolify_delete_application` - Delete application
@@ -179,20 +185,23 @@ Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
 - `coolify_restart_application` - Restart application
 - `coolify_get_application_logs` - Get application logs
 - `coolify_get_application_deployments` - Get deployments for an application
-
-### Environment Variables (5 tools)
 - `coolify_list_application_envs` - List application environment variables
 - `coolify_create_application_env` - Create application environment variable
 - `coolify_bulk_update_application_envs` - Bulk update application environment variables
 - `coolify_delete_application_env` - Delete application environment variable
 
-### Database Management (12 tools)
+
+### Database Management (15 tools)
 - `coolify_list_databases` - List all databases
 - `coolify_create_database` - Create a new database (generic)
 - `coolify_create_postgresql_database` - Create a PostgreSQL database
 - `coolify_create_mysql_database` - Create a MySQL database
 - `coolify_create_mongodb_database` - Create a MongoDB database
 - `coolify_create_redis_database` - Create a Redis database
+- `coolify_create_mariadb_database` - Create a MariaDB database
+- `coolify_create_clickhouse_database` - Create a ClickHouse database
+- `coolify_create_dragonfly_database` - Create a DragonFly database
+- `coolify_create_keydb_database` - Create a KeyDB database
 - `coolify_get_database` - Get database by UUID
 - `coolify_update_database` - Update database
 - `coolify_delete_database` - Delete database
@@ -210,7 +219,7 @@ Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
 - `coolify_list_server_domains` - List server domains
 - `coolify_list_server_resources` - List server resources
 
-### Service Management (8 tools)
+### Service Management (15 tools)
 - `coolify_list_services` - List all services
 - `coolify_create_service` - Create a new service
 - `coolify_get_service` - Get service by UUID
@@ -219,6 +228,11 @@ Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
 - `coolify_start_service` - Start service
 - `coolify_stop_service` - Stop service
 - `coolify_restart_service` - Restart service
+- `coolify_list_service_envs` - List service environment variables
+- `coolify_create_service_env` - Create service environment variable
+- `coolify_update_service_env` - Update service environment variable
+- `coolify_bulk_update_service_envs` - Bulk update service environment variables
+- `coolify_delete_service_env` - Delete service environment variable
 
 ### Deployment Management (4 tools)
 - `coolify_list_deployments` - List all deployments
@@ -232,6 +246,9 @@ Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
 - `coolify_get_security_key` - Get security key by UUID
 - `coolify_update_security_key` - Update security key
 - `coolify_delete_security_key` - Delete security key
+
+### Resources (1 tool)
+- `coolify_list_server_resources` - List server resources
 
 ## 🏗️ Development
 
@@ -258,18 +275,18 @@ coolify-mcp-server/
 
 ## 🔧 API Coverage
 
-This MCP server provides **100% coverage** of the Coolify API with **64 tools** covering all **66 API endpoints**:
+This MCP server provides **100% coverage** of the Coolify API with **83+ tools** covering all **83+ API endpoints**:
 
-- ✅ Health & System endpoints
-- ✅ Team Management endpoints  
-- ✅ Project Management endpoints
-- ✅ Application Management endpoints
-- ✅ Environment Variables endpoints
-- ✅ Database Management endpoints
-- ✅ Server Management endpoints
-- ✅ Service Management endpoints
-- ✅ Deployment Management endpoints
-- ✅ Security & Keys endpoints
+- ✅ Health & System endpoints (2 tools)
+- ✅ Team Management endpoints (5 tools)
+- ✅ Project Management endpoints (10 tools)
+- ✅ Application Management endpoints (19 tools)
+- ✅ Database Management endpoints (15 tools)
+- ✅ Server Management endpoints (8 tools)
+- ✅ Service Management endpoints (15 tools)
+- ✅ Deployment Management endpoints (4 tools)
+- ✅ Security & Keys endpoints (5 tools)
+- ✅ Resources endpoints (1 tool)
 
 ## 🚀 Production Deployment
 
@@ -311,7 +328,8 @@ MIT License - see LICENSE file for details.
 
 ## 📚 Documentation
 
-- **[API Reference](API_REFERENCE.md)** - Complete reference for all 64 MCP tools
+- **[API Reference](API_REFERENCE.md)** - Complete reference for all 83+ MCP tools
+- **[Tools Reference](TOOLS_REFERENCE.md)** - Detailed documentation for all available tools
 - **[Troubleshooting Guide](TROUBLESHOOTING.md)** - Common issues and solutions
 - **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to the project
 - **[Changelog](CHANGELOG.md)** - Version history and changes

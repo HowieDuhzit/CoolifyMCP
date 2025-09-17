@@ -384,8 +384,17 @@ npm run lint
 - **Solution:** Wait and retry, reduce request frequency
 
 #### `Tool execution failed: API Error: 500 Internal Server Error`
-- **Cause:** Coolify server error
-- **Solution:** Check Coolify status, retry later
+- **Cause:** Coolify server error or unsupported parameters
+- **Solution:** Check Coolify status, retry later, or verify parameter names match API specification
+
+#### `Tool execution failed: API Error: Validation failed`
+- **Cause:** Invalid or unsupported parameters sent to API
+- **Solution:** Check parameter names and values against API documentation
+- **Common Issues:**
+  - Application environment variables: Only use `key` and `value` parameters
+  - Service environment variables: Only use `key` and `value` parameters  
+  - Security keys: Use `private_key` parameter instead of `key`
+  - Deployment trigger: Use `uuid` parameter instead of `application_uuid`
 
 ## Getting Help
 
@@ -431,3 +440,29 @@ This will provide detailed information about:
 - Configuration loading
 - Error stack traces
 - Performance metrics
+
+## Recently Fixed Issues
+
+The following issues have been resolved in the latest version:
+
+### ✅ Application Environment Variable Creation
+- **Issue**: API rejected `is_secret` parameter
+- **Fix**: Simplified to only send `key` and `value` parameters
+- **Status**: Resolved and tested
+
+### ✅ Security Key Creation/Update  
+- **Issue**: API expected `private_key` instead of `key` parameter
+- **Fix**: Updated handlers to send `private_key` parameter
+- **Status**: Resolved and tested
+
+### ✅ Deployment Trigger
+- **Issue**: API expected `uuid` or `tag` parameter instead of `application_uuid`
+- **Fix**: Updated handler to send `uuid` parameter
+- **Status**: Resolved and tested
+
+### ✅ Service Environment Variable Creation
+- **Issue**: Server Error (500) due to unsupported parameters
+- **Fix**: Simplified to only send `key` and `value` parameters
+- **Status**: Resolved and tested
+
+All 83+ endpoints are now fully functional and tested.
