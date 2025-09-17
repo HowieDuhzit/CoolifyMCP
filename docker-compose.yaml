@@ -28,7 +28,6 @@ services:
     
     # Volume mounts for persistence and logging
     volumes:
-      - ./logs:/app/logs:rw
       - /etc/localtime:/etc/localtime:ro
     
     # Resource limits for production
@@ -109,7 +108,6 @@ services:
     # Temporary filesystem for writable areas
     tmpfs:
       - /tmp:noexec,nosuid,size=100m
-      - /app/logs:noexec,nosuid,size=100m
 
 # Network configuration
 networks:
