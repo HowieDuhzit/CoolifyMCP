@@ -1,8 +1,6 @@
 services:
   coolify-mcp-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: 'ghcr.io/howieduhzit/coolify-mcp-server:latest'
     environment:
       - NODE_ENV=production
       - PORT=3000

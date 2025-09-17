@@ -5,10 +5,49 @@
 - Coolify server running and accessible
 - Coolify API token
 - Domain configured for your Coolify server
+- Docker image published to `ghcr.io/howieduhzit/coolify-mcp-server:latest` (or update the image reference in docker-compose.yaml)
+
+## Building and Publishing the Docker Image
+
+Before deploying, you need to build and publish the Docker image:
+
+1. **Build the image:**
+   ```bash
+   docker build -t ghcr.io/howieduhzit/coolify-mcp-server:latest .
+   ```
+
+2. **Tag for GitHub Container Registry:**
+   ```bash
+   docker tag ghcr.io/howieduhzit/coolify-mcp-server:latest ghcr.io/howieduhzit/coolify-mcp-server:latest
+   ```
+
+3. **Login to GitHub Container Registry:**
+   ```bash
+   echo $GITHUB_TOKEN | docker login ghcr.io -u howieduhzit --password-stdin
+   ```
+
+4. **Push the image:**
+   ```bash
+   docker push ghcr.io/howieduhzit/coolify-mcp-server:latest
+   ```
 
 ## Deployment Methods
 
-### Method 1: Git Repository (Recommended)
+### Method 1: Docker Image (Recommended)
+
+1. **In Coolify dashboard, create new application**
+2. **Choose "Docker Image" as the source**
+3. **Enter image name:** `ghcr.io/howieduhzit/coolify-mcp-server:latest`
+4. **Choose "Docker Compose" as the build pack**
+5. **Upload the `docker-compose.yaml` file**
+6. **Configure environment variables:**
+   - `COOLIFY_API_TOKEN`: Your Coolify API token
+   - `COOLIFY_BASE_URL`: Your Coolify instance URL (e.g., `https://app.coolify.io/api/v1`)
+   - `LOG_LEVEL`: `info` (optional)
+7. **Set the domain** (e.g., `mcp.yourdomain.com`)
+8. **Deploy the application**
+
+### Method 2: Git Repository (Alternative)
 
 1. **Push this code to a Git repository** (GitHub, GitLab, etc.)
 2. **In Coolify dashboard, create new application**
@@ -23,19 +62,6 @@
 8. **Set the domain** (e.g., `mcp.yourdomain.com`)
 9. **Deploy the application**
 
-### Method 2: Coolify Dashboard (Direct Upload)
-
-1. **Access your Coolify dashboard**
-2. **Create a new application**
-3. **Choose "Docker Compose" as the application type**
-4. **Upload the `docker-compose.yaml` file**
-5. **Configure environment variables:**
-   - `COOLIFY_API_TOKEN`: Your Coolify API token
-   - `COOLIFY_BASE_URL`: Your Coolify instance URL (e.g., `https://app.coolify.io/api/v1`)
-   - `LOG_LEVEL`: `info` (optional)
-6. **Set the domain** (e.g., `mcp.yourdomain.com`)
-7. **Deploy the application**
-
 ### Method 3: Direct Docker Compose
 
 1. **Update your `.env` file with:**
@@ -44,12 +70,9 @@
    COOLIFY_BASE_URL=https://your-coolify-instance.com/api/v1
    ```
 
-2. **Build and deploy:**
+2. **Deploy with docker-compose:**
    ```bash
-   # Build the Docker image
-   docker build -t coolify-mcp-server:latest .
-   
-   # Deploy with docker-compose
+   # Deploy using the pre-built image
    docker-compose up -d
    ```
 
