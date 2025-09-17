@@ -1,6 +1,6 @@
 {
   "name": "coolifymcp",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Comprehensive Model Context Protocol (MCP) server with 40+ tools including knowledge base, templates, monitoring, and 100% Coolify API coverage. Built for the open-source Coolify platform.",
   "main": "dist/index.js",
   "type": "module",
