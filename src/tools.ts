@@ -1,6 +1,8 @@
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { getExpandedTools } from './expanded-tools.js';
 
 export const getTools = (): Tool[] => [
+  // Original Coolify API Tools
   // System Management
   {
     name: 'coolify_system',
@@ -723,4 +725,7 @@ export const getTools = (): Tool[] => [
       required: ['action'],
     },
   },
+
+  // Expanded Knowledge Base and Advanced Tools
+  ...getExpandedTools(),
 ];

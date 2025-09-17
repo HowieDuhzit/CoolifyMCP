@@ -28,7 +28,10 @@ A comprehensive **Model Context Protocol (MCP)** server that provides complete a
 ## ✨ Features
 
 - **🎯 100% API Coverage**: Complete implementation of all Coolify API endpoints
-- **🛠️ 18 Consolidated MCP Tools**: Streamlined access to Coolify's functionality through MCP protocol
+- **🛠️ 40+ MCP Tools**: Comprehensive access to Coolify's functionality through MCP protocol
+- **🧠 Knowledge Base**: Built-in knowledge base with Coolify documentation, examples, and best practices
+- **📋 Template Management**: One-click service templates and Docker Compose examples
+- **🔍 Advanced Search**: Semantic search through Coolify documentation and examples
 - **🔒 Type Safety**: Built with TypeScript for robust error handling and development experience
 - **🚀 Production Ready**: Health checks, proper logging, and monitoring
 - **📦 Modular Architecture**: Clean, maintainable codebase with separated concerns
@@ -41,6 +44,12 @@ A comprehensive **Model Context Protocol (MCP)** server that provides complete a
   - 📦 Deployment Management
   - 🔐 Environment Variables
   - 🔑 Security Keys Management
+  - 📚 Knowledge Base and Documentation Search
+  - 🎨 Template and Docker Compose Management
+  - 📊 Monitoring and Performance Analysis
+  - 🔒 Security Auditing and SSL Setup
+  - 🚀 CI/CD and Automation Tools
+  - 🧪 Development and Testing Environment Setup
 
 ## 🚀 Quick Start
 
@@ -203,7 +212,9 @@ The configuration format is consistent across all MCP-compatible IDEs. Here are 
 
 ## 🎯 Available Tools
 
-The Coolify MCP Server provides **18 consolidated tools** that cover all Coolify functionality through action-based parameters:
+The Coolify MCP Server provides **40+ comprehensive tools** that cover all Coolify functionality through action-based parameters:
+
+### Core Coolify API Tools (18 tools)
 
 ### System Management (1 tool)
 - `coolify_system` - System health, version, and information management
@@ -258,6 +269,59 @@ The Coolify MCP Server provides **18 consolidated tools** that cover all Coolify
 - `coolify_security_keys` - Security key management
   - Actions: `list`, `create`, `get`, `update`, `delete`
 
+### Knowledge Base Tools (4 tools)
+- `coolify_knowledge_search` - Search through Coolify documentation and examples
+  - Parameters: `query`, `category`, `source`, `limit`
+- `coolify_knowledge_get_document` - Get specific document by ID
+  - Parameters: `document_id`
+- `coolify_knowledge_list_categories` - List all knowledge base categories
+- `coolify_knowledge_get_category` - Get documents in specific category
+  - Parameters: `category`
+
+### Template Management Tools (3 tools)
+- `coolify_templates_list` - List available one-click service templates
+  - Parameters: `category`, `type`
+- `coolify_templates_get` - Get specific template configuration
+  - Parameters: `template_name`, `format`
+- `coolify_templates_validate` - Validate Docker Compose templates
+  - Parameters: `template_content`, `template_format`
+
+### Docker Compose Tools (2 tools)
+- `coolify_docker_compose_generate` - Generate Docker Compose for common stacks
+  - Parameters: `stack_type`, `services`, `environment`, `include_volumes`, `include_networks`
+- `coolify_docker_compose_optimize` - Optimize Docker Compose for Coolify
+  - Parameters: `compose_content`, `optimization_level`, `add_health_checks`, `add_coolify_vars`
+
+### Monitoring and Analytics Tools (2 tools)
+- `coolify_monitoring_setup` - Set up monitoring stack with Prometheus/Grafana
+  - Parameters: `project_uuid`, `server_uuid`, `environment_name`, `include_grafana`, `include_alertmanager`
+- `coolify_health_check_generator` - Generate health check configurations
+  - Parameters: `application_type`, `port`, `health_endpoint`, `check_type`, `interval`, `timeout`, `retries`
+
+### CI/CD and Automation Tools (2 tools)
+- `coolify_webhook_setup` - Set up webhooks for CI/CD integration
+  - Parameters: `application_uuid`, `webhook_type`, `events`, `secret`, `auto_deploy`
+- `coolify_backup_setup` - Set up automated backup configuration
+  - Parameters: `resource_uuid`, `resource_type`, `backup_frequency`, `retention_days`, `s3_bucket`
+
+### Security and Compliance Tools (2 tools)
+- `coolify_security_audit` - Perform security audit of deployment
+  - Parameters: `project_uuid`, `audit_type`, `check_ssl`, `check_secrets`, `check_permissions`
+- `coolify_ssl_setup` - Set up SSL certificates and HTTPS
+  - Parameters: `application_uuid`, `domain`, `certificate_type`, `force_https`, `hsts`, `auto_renewal`
+
+### Performance and Optimization Tools (2 tools)
+- `coolify_performance_analyze` - Analyze application performance
+  - Parameters: `application_uuid`, `analysis_duration`, `check_resources`, `check_network`, `check_database`
+- `coolify_scaling_recommendations` - Get scaling recommendations
+  - Parameters: `application_uuid`, `scaling_type`, `target_performance`, `include_cost_analysis`
+
+### Development and Testing Tools (2 tools)
+- `coolify_development_environment` - Set up development environment
+  - Parameters: `project_uuid`, `server_uuid`, `environment_name`, `enable_hot_reload`, `enable_debugging`
+- `coolify_testing_setup` - Set up testing environment with automated testing
+  - Parameters: `application_uuid`, `test_types`, `ci_integration`, `test_database`, `coverage_reporting`
+
 ## 🏗️ Development
 
 ### Scripts
@@ -283,8 +347,9 @@ coolify-mcp-server/
 
 ## 🔧 API Coverage
 
-This MCP server provides **100% coverage** of the Coolify API with **18 consolidated tools** covering all **83+ API endpoints**:
+This MCP server provides **100% coverage** of the Coolify API with **40+ comprehensive tools** covering all **83+ API endpoints** plus advanced knowledge base and automation features:
 
+### Core API Coverage (18 tools)
 - ✅ System Management (1 tool) - Health, version, and system information
 - ✅ Team Management (1 tool) - Complete team operations
 - ✅ Project Management (2 tools) - Projects and environments
@@ -294,11 +359,22 @@ This MCP server provides **100% coverage** of the Coolify API with **18 consolid
 - ✅ Service Management (3 tools) - Service operations and lifecycle
 - ✅ Security Management (1 tool) - Security keys and authentication
 
-**Key Benefits of Consolidation:**
-- 🎯 **Reduced Complexity**: 18 tools instead of 83+ individual tools
-- 🚀 **Better Performance**: Fewer tool definitions and cleaner API
-- 🔧 **Easier Maintenance**: Action-based parameters for better organization
-- 📚 **Simplified Documentation**: Clear tool categories and actions
+### Advanced Features (22+ tools)
+- ✅ Knowledge Base (4 tools) - Documentation search and retrieval
+- ✅ Template Management (3 tools) - One-click services and Docker Compose templates
+- ✅ Docker Compose Tools (2 tools) - Generation and optimization
+- ✅ Monitoring & Analytics (2 tools) - Performance monitoring and health checks
+- ✅ CI/CD & Automation (2 tools) - Webhooks and backup automation
+- ✅ Security & Compliance (2 tools) - Security auditing and SSL setup
+- ✅ Performance & Optimization (2 tools) - Performance analysis and scaling
+- ✅ Development & Testing (2 tools) - Development environments and testing setup
+
+**Key Benefits:**
+- 🎯 **Comprehensive Coverage**: 40+ tools covering all Coolify functionality
+- 🧠 **Knowledge Base**: Built-in documentation and examples search
+- 🚀 **Advanced Automation**: Template generation, monitoring setup, and CI/CD tools
+- 🔧 **Developer Experience**: Development environments and testing tools
+- 📚 **Rich Documentation**: Extensive knowledge base with search capabilities
 
 ## 🚀 Production Deployment
 

@@ -10,6 +10,7 @@ import {
 import { ConfigManager } from './config.js';
 import { CoolifyAPIClient } from './api-client.js';
 import { CoolifyHandlers } from './handlers.js';
+import { CoolifyExpandedHandlers } from './expanded-handlers.js';
 import { HealthServer } from './health-server.js';
 import { getTools } from './tools.js';
 import { CoolifyError } from './types.js';
@@ -19,6 +20,7 @@ class CoolifyMCPServer {
   private configManager: ConfigManager;
   private apiClient: CoolifyAPIClient;
   private handlers: CoolifyHandlers;
+  private expandedHandlers: CoolifyExpandedHandlers;
   private healthServer: HealthServer;
 
   constructor() {
@@ -32,6 +34,7 @@ class CoolifyMCPServer {
     this.configManager = new ConfigManager();
     this.apiClient = new CoolifyAPIClient(this.configManager);
     this.handlers = new CoolifyHandlers(this.apiClient);
+    this.expandedHandlers = new CoolifyExpandedHandlers(this.apiClient);
     this.healthServer = new HealthServer();
 
     this.setupToolHandlers();
@@ -135,6 +138,60 @@ class CoolifyMCPServer {
       // Security Keys Management
       case 'coolify_security_keys':
         return await this.handlers.securityKeys(args.action, args);
+      
+      // Knowledge Base Tools
+      case 'coolify_knowledge_search':
+        return await this.expandedHandlers.knowledgeSearch(args);
+      case 'coolify_knowledge_get_document':
+        return await this.expandedHandlers.knowledgeGetDocument(args.document_id);
+      case 'coolify_knowledge_list_categories':
+        return await this.expandedHandlers.knowledgeListCategories();
+      case 'coolify_knowledge_get_category':
+        return await this.expandedHandlers.knowledgeGetCategory(args.category);
+      
+      // Template Management Tools
+      case 'coolify_templates_list':
+        return await this.expandedHandlers.templatesList(args.category, args.type);
+      case 'coolify_templates_get':
+        return await this.expandedHandlers.templatesGet(args.template_name, args.format);
+      case 'coolify_templates_validate':
+        return await this.expandedHandlers.templatesValidate(args.template_content, args.template_format);
+      
+      // Docker Compose Tools
+      case 'coolify_docker_compose_generate':
+        return await this.expandedHandlers.dockerComposeGenerate(args);
+      case 'coolify_docker_compose_optimize':
+        return await this.expandedHandlers.dockerComposeOptimize(args);
+      
+      // Monitoring and Analytics Tools
+      case 'coolify_monitoring_setup':
+        return await this.expandedHandlers.monitoringSetup(args);
+      case 'coolify_health_check_generator':
+        return await this.expandedHandlers.healthCheckGenerator(args);
+      
+      // CI/CD and Automation Tools
+      case 'coolify_webhook_setup':
+        return await this.expandedHandlers.webhookSetup(args);
+      case 'coolify_backup_setup':
+        return await this.expandedHandlers.backupSetup(args);
+      
+      // Security and Compliance Tools
+      case 'coolify_security_audit':
+        return await this.expandedHandlers.securityAudit(args);
+      case 'coolify_ssl_setup':
+        return await this.expandedHandlers.sslSetup(args);
+      
+      // Performance and Optimization Tools
+      case 'coolify_performance_analyze':
+        return await this.expandedHandlers.performanceAnalyze(args);
+      case 'coolify_scaling_recommendations':
+        return await this.expandedHandlers.scalingRecommendations(args);
+      
+      // Development and Testing Tools
+      case 'coolify_development_environment':
+        return await this.expandedHandlers.developmentEnvironment(args);
+      case 'coolify_testing_setup':
+        return await this.expandedHandlers.testingSetup(args);
       
       default:
         throw new CoolifyError(`Unknown tool: ${name}`, 400);
