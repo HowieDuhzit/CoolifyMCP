@@ -18,7 +18,9 @@
     "lint:fix": "eslint src --ext .ts --fix",
     "type-check": "tsc --noEmit",
     "test": "echo \"No tests specified\" && exit 0",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "fetch-docs": "node scripts/fetch-docs.js",
+    "fetch-docs-py": "python3 scripts/fetch-docs.py"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.4.0",

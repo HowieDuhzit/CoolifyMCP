@@ -2,6 +2,8 @@
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=coolifymcp&config=eyJjb21tYW5kIjoibnB4IGNvb2xpZnltY3AiLCJlbnYiOnsiQ09PTElGWV9BUElfVE9LRU4iOiJ5b3VyX2Nvb2xpZnlfYXBpX3Rva2VuX2hlcmUiLCJDT09MSUZZX0JBU0VfVVJMIjoiaHR0cHM6Ly95b3VyLWNvb2xpZnktaW5zdGFuY2UuY29tL2FwaS92MSJ9fQ%3D%3D)
 
+> **🚀 NEW: Version 2.0.1** - Now with comprehensive knowledge base, 40+ tools, and advanced automation features!
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
@@ -66,7 +68,7 @@ CoolifyMCP works with all major AI IDEs that support the Model Context Protocol 
   "mcpServers": {
     "coolifymcp": {
       "command": "npx",
-      "args": ["coolifymcp"],
+      "args": ["coolifymcp@latest"],
       "env": {
         "COOLIFY_API_TOKEN": "your_coolify_api_token_here",
         "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"
@@ -85,7 +87,7 @@ CoolifyMCP works with all major AI IDEs that support the Model Context Protocol 
   "mcpServers": {
     "coolifymcp": {
       "command": "npx",
-      "args": ["coolifymcp"],
+      "args": ["coolifymcp@latest"],
       "env": {
         "COOLIFY_API_TOKEN": "your_coolify_api_token_here",
         "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"
@@ -136,14 +138,16 @@ COOLIFY_API_TOKEN="your_token_here" COOLIFY_BASE_URL="https://your-coolify-insta
 
 1. Install and run with npx (no installation needed):
 ```bash
-npx coolifymcp
+npx coolifymcp@latest
 ```
 
 2. Or install globally:
 ```bash
-npm install -g coolifymcp
+npm install -g coolifymcp@latest
 coolifymcp
 ```
+
+> **Note**: The latest version (2.0.1) includes the comprehensive knowledge base and 40+ tools. Make sure to use `@latest` to get the newest features!
 
 ### Local Development
 
@@ -196,7 +200,7 @@ The configuration format is consistent across all MCP-compatible IDEs. Here are 
   "mcpServers": {
     "coolifymcp": {
       "command": "npx",
-      "args": ["coolifymcp"],
+      "args": ["coolifymcp@latest"],
       "env": {
         "COOLIFY_API_TOKEN": "your_token_here",
         "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"

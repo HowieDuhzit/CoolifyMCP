@@ -1,0 +1,777 @@
+{
+  "source": {
+    "repository": "coollabsio/coolify-docs",
+    "branch": "v4.x",
+    "url": "https://github.com/coollabsio/coolify-docs",
+    "docs_url": "https://coolify.io/docs"
+  },
+  "generation": {
+    "timestamp": "2025-09-17T04:05:07.846115",
+    "total_files": 127,
+    "total_size": 431524
+  },
+  "files": [
+    {
+      "name": "index.md",
+      "path": "api-reference/api/index.md",
+      "size": 204,
+      "sha": "28573831e9845ebd739d2e4fd2ff6ad0324941df"
+    },
+    {
+      "name": "[operation].md",
+      "path": "api-reference/api/operations/[operation].md",
+      "size": 1561,
+      "sha": "c88951398185ef013d28669e3c430803e8e16913"
+    },
+    {
+      "name": "authorization.md",
+      "path": "api-reference/authorization.md",
+      "size": 1662,
+      "sha": "b7f145b01d4267e9af1d189341ed09cc2076e954"
+    },
+    {
+      "name": "django.md",
+      "path": "applications/django.md",
+      "size": 642,
+      "sha": "667986e6a080c0c1aafb2810f3e9de2393a9f33f"
+    },
+    {
+      "name": "index.md",
+      "path": "applications/index.md",
+      "size": 6861,
+      "sha": "1a91df64870a026d0059fed699d9084d04f0687e"
+    },
+    {
+      "name": "jekyll.md",
+      "path": "applications/jekyll.md",
+      "size": 1081,
+      "sha": "af4c6a6261cbe9b992a6a6c66e3938dcf2e4cb1d"
+    },
+    {
+      "name": "laravel.md",
+      "path": "applications/laravel.md",
+      "size": 12259,
+      "sha": "af5198425558f27b4f2ee64b583d6b0e88078401"
+    },
+    {
+      "name": "nextjs.md",
+      "path": "applications/nextjs.md",
+      "size": 918,
+      "sha": "271701689487ec13d709bbcc66ca2ae910989335"
+    },
+    {
+      "name": "nuxt.md",
+      "path": "applications/nuxt.md",
+      "size": 1045,
+      "sha": "b4c56b9a5f2f63062661be9fb55a3f0b020f60b9"
+    },
+    {
+      "name": "phoenix.md",
+      "path": "applications/phoenix.md",
+      "size": 609,
+      "sha": "2b09ab6092f2a5657682985cfd24d8f0b943d422"
+    },
+    {
+      "name": "rails.md",
+      "path": "applications/rails.md",
+      "size": 494,
+      "sha": "e1263e3d0ab0dc152be0786758163c2c6d9bbd97"
+    },
+    {
+      "name": "svelte-kit.md",
+      "path": "applications/svelte-kit.md",
+      "size": 750,
+      "sha": "90cb01a61150a512767a9c3aa38e031fbdee0842"
+    },
+    {
+      "name": "symfony.md",
+      "path": "applications/symfony.md",
+      "size": 2084,
+      "sha": "18c10ddfdd064eb2899de4e0fa10cd6299d6c45d"
+    },
+    {
+      "name": "vite.md",
+      "path": "applications/vite.md",
+      "size": 510,
+      "sha": "8c97a490a3602962e2c76ccf5baec170f9b1ca59"
+    },
+    {
+      "name": "vitepress.md",
+      "path": "applications/vitepress.md",
+      "size": 379,
+      "sha": "9255f1d4461e0150e94b6996da722b3713d5a445"
+    },
+    {
+      "name": "vuejs.md",
+      "path": "applications/vuejs.md",
+      "size": 585,
+      "sha": "642c74dbcf025ede160390246ce5ccad94f8f7ea"
+    },
+    {
+      "name": "introduction.md",
+      "path": "builds/introduction.md",
+      "size": 2481,
+      "sha": "61b25b85d3ef729ffdb5115265266c967a56f75b"
+    },
+    {
+      "name": "docker-compose.md",
+      "path": "builds/packs/docker-compose.md",
+      "size": 9302,
+      "sha": "1e5e25a91dd2081289edd5e1161b2256c724ddba"
+    },
+    {
+      "name": "dockerfile.md",
+      "path": "builds/packs/dockerfile.md",
+      "size": 4279,
+      "sha": "a1c6a7401b4d9cdb3350fe7fa5cee3da507f8503"
+    },
+    {
+      "name": "nixpacks.md",
+      "path": "builds/packs/nixpacks.md",
+      "size": 7694,
+      "sha": "8f050bac6c5f979ad6934cf52e1d8f42913f0fe6"
+    },
+    {
+      "name": "overview.md",
+      "path": "builds/packs/overview.md",
+      "size": 2364,
+      "sha": "f6262e148df18ff87996caffbcb4a3aec0563108"
+    },
+    {
+      "name": "static.md",
+      "path": "builds/packs/static.md",
+      "size": 4083,
+      "sha": "d85437b6d59a17504f079ecb34900f434e125a6f"
+    },
+    {
+      "name": "servers.md",
+      "path": "builds/servers.md",
+      "size": 2708,
+      "sha": "05a7dc96da642c65e59cac8420ffc09693cf98c6"
+    },
+    {
+      "name": "backups.md",
+      "path": "databases/backups.md",
+      "size": 1660,
+      "sha": "831b3733fedc165bb38c6144da5cf849826cb3a3"
+    },
+    {
+      "name": "clickhouse.md",
+      "path": "databases/clickhouse.md",
+      "size": 2943,
+      "sha": "838d8ed7bcbd30ebfb94a9f6e94cb5189fe5478c"
+    },
+    {
+      "name": "dragonfly.md",
+      "path": "databases/dragonfly.md",
+      "size": 1242,
+      "sha": "f89af853ee9443f7e326a6c41d0bb696f7145997"
+    },
+    {
+      "name": "index.md",
+      "path": "databases/index.md",
+      "size": 2161,
+      "sha": "098360f6a30744fd2e3f627730176eb4223ca45e"
+    },
+    {
+      "name": "keydb.md",
+      "path": "databases/keydb.md",
+      "size": 885,
+      "sha": "486781374ddb4b904e26f471914a510f6aa8d553"
+    },
+    {
+      "name": "mariadb.md",
+      "path": "databases/mariadb.md",
+      "size": 755,
+      "sha": "d8dc78051a2d8e6da99b0044c9698a3f0f6bae01"
+    },
+    {
+      "name": "mongodb.md",
+      "path": "databases/mongodb.md",
+      "size": 772,
+      "sha": "0f6222c164fd357acf3bdbb8a6bec6ebff2eee9b"
+    },
+    {
+      "name": "mysql.md",
+      "path": "databases/mysql.md",
+      "size": 745,
+      "sha": "099a278adc6356e7020bb8541db5b3cd420272a4"
+    },
+    {
+      "name": "postgresql.md",
+      "path": "databases/postgresql.md",
+      "size": 1841,
+      "sha": "b171ab4bd2943336a2fdfa38ec2ece17c3e65dd0"
+    },
+    {
+      "name": "redis.md",
+      "path": "databases/redis.md",
+      "size": 575,
+      "sha": "2db01dcbdcb3013cc9ceff002644f37339e69a98"
+    },
+    {
+      "name": "ssl.md",
+      "path": "databases/ssl.md",
+      "size": 5806,
+      "sha": "9f485f60932be1883b0464aeaf3865ef4aeaadb5"
+    },
+    {
+      "name": "cloud.md",
+      "path": "get-started/cloud.md",
+      "size": 10241,
+      "sha": "8ba2a44cb5eb4b7b5ccb6f50aabbebc2d209be2e"
+    },
+    {
+      "name": "concepts.md",
+      "path": "get-started/concepts.md",
+      "size": 3682,
+      "sha": "e66e9088b5de3fb10b2a0567d0606e8e53689461"
+    },
+    {
+      "name": "coolify.md",
+      "path": "get-started/contribute/coolify.md",
+      "size": 10366,
+      "sha": "69f1c6fa9c389b6c9cc2ba2db71f37eb1e354f2c"
+    },
+    {
+      "name": "documentation.md",
+      "path": "get-started/contribute/documentation.md",
+      "size": 3580,
+      "sha": "7e1a26ba9a9046748222aa26b483fa32e97c8cde"
+    },
+    {
+      "name": "service.md",
+      "path": "get-started/contribute/service.md",
+      "size": 3804,
+      "sha": "7793b995dddf9ef5c42a397c5d2a7080bbec09e6"
+    },
+    {
+      "name": "downgrade.md",
+      "path": "get-started/downgrade.md",
+      "size": 2937,
+      "sha": "0b56807475d42ee6a53307a808c29d67a35b42eb"
+    },
+    {
+      "name": "installation.md",
+      "path": "get-started/installation.md",
+      "size": 10748,
+      "sha": "d2491094b545c11eed334588044e2bdfcd86561c"
+    },
+    {
+      "name": "introduction.md",
+      "path": "get-started/introduction.md",
+      "size": 7592,
+      "sha": "05b209a39607408f67a359714c21eb3a97c6a7aa"
+    },
+    {
+      "name": "screenshots.md",
+      "path": "get-started/screenshots.md",
+      "size": 1510,
+      "sha": "99d1846c7caa063b9261cf65785b88e6ecd73d60"
+    },
+    {
+      "name": "sponsors.md",
+      "path": "get-started/sponsors.md",
+      "size": 8615,
+      "sha": "29ee230304b2152ffc31df90f0e35bf144f5a69e"
+    },
+    {
+      "name": "support.md",
+      "path": "get-started/support.md",
+      "size": 1339,
+      "sha": "021ae465cddd67cf8ca802001bd70451f725b4be"
+    },
+    {
+      "name": "team.md",
+      "path": "get-started/team.md",
+      "size": 2629,
+      "sha": "bae93111650fb8cffa587a7eba1664791ad079c4"
+    },
+    {
+      "name": "uninstallation.md",
+      "path": "get-started/uninstallation.md",
+      "size": 2898,
+      "sha": "a4d763dbedd47a89b4e768a1120b5815d9687c72"
+    },
+    {
+      "name": "upgrade.md",
+      "path": "get-started/upgrade.md",
+      "size": 3433,
+      "sha": "02d4a7770b0cc12579da4ad5a1313a7ef4286b3f"
+    },
+    {
+      "name": "usage.md",
+      "path": "get-started/usage.md",
+      "size": 3489,
+      "sha": "6cae581b2515343a4fc636484d492f012e053211"
+    },
+    {
+      "name": "videos.md",
+      "path": "get-started/videos.md",
+      "size": 2615,
+      "sha": "5b53ca30b4fa463e192d27946cafcf8df33cf2bf"
+    },
+    {
+      "name": "index.md",
+      "path": "index.md",
+      "size": 8419,
+      "sha": "bc6f38b1a89d058d91d4826f1c69fcea6e62f538"
+    },
+    {
+      "name": "webstudio.md",
+      "path": "integrations/webstudio.md",
+      "size": 6665,
+      "sha": "9d2a4d5f231ce06a95e57ffe45ecd362f2af71a4"
+    },
+    {
+      "name": "change-localhost-key.md",
+      "path": "knowledge-base/change-localhost-key.md",
+      "size": 2069,
+      "sha": "29c024ca04e723fbb944cc52b0149498824a0f0c"
+    },
+    {
+      "name": "origin-cert.md",
+      "path": "knowledge-base/cloudflare/origin-cert.md",
+      "size": 11532,
+      "sha": "cefdb5277713b8f23d1688789dce860561255e61"
+    },
+    {
+      "name": "all-resource.md",
+      "path": "knowledge-base/cloudflare/tunnels/all-resource.md",
+      "size": 7874,
+      "sha": "38d7da5cbd81c675c7d2b60eba4b5ec46d14c4d1"
+    },
+    {
+      "name": "full-tls.md",
+      "path": "knowledge-base/cloudflare/tunnels/full-tls.md",
+      "size": 8244,
+      "sha": "3d0a5cb9aef29266d3f6732bd51c358cf1c472da"
+    },
+    {
+      "name": "overview.md",
+      "path": "knowledge-base/cloudflare/tunnels/overview.md",
+      "size": 2402,
+      "sha": "ca867775b9198a083cfb76f5ab585597eecf42f6"
+    },
+    {
+      "name": "server-ssh.md",
+      "path": "knowledge-base/cloudflare/tunnels/server-ssh.md",
+      "size": 15199,
+      "sha": "e0437f4186934570c0e0bbe1bb6569be2c7be562"
+    },
+    {
+      "name": "single-resource.md",
+      "path": "knowledge-base/cloudflare/tunnels/single-resource.md",
+      "size": 10057,
+      "sha": "f9e611e8a6c81a5b4477b7ed4cbf368a025e15b4"
+    },
+    {
+      "name": "commands.md",
+      "path": "knowledge-base/commands.md",
+      "size": 797,
+      "sha": "fabd796e514c2bb03a44f8f19639356fb5aea037"
+    },
+    {
+      "name": "create-root-user-with-env.md",
+      "path": "knowledge-base/create-root-user-with-env.md",
+      "size": 3005,
+      "sha": "95a900564e2df7044380339dd258e20856a6f12e"
+    },
+    {
+      "name": "cron-syntax.md",
+      "path": "knowledge-base/cron-syntax.md",
+      "size": 899,
+      "sha": "5a1b241fc4a16a1466a4b42b5a707f653eede95f"
+    },
+    {
+      "name": "custom-docker-registry.md",
+      "path": "knowledge-base/custom-docker-registry.md",
+      "size": 1799,
+      "sha": "31102009a61e49336fa877f03b8e62f3632e0aba"
+    },
+    {
+      "name": "define-custom-docker-network-with-env.md",
+      "path": "knowledge-base/define-custom-docker-network-with-env.md",
+      "size": 2385,
+      "sha": "bf9924c61fdbdc3946e15b173eaba98f885dc542"
+    },
+    {
+      "name": "delete-user.md",
+      "path": "knowledge-base/delete-user.md",
+      "size": 1467,
+      "sha": "501fab18b727cfe33af448135ab2c9fba271ab52"
+    },
+    {
+      "name": "create.md",
+      "path": "knowledge-base/destinations/create.md",
+      "size": 3523,
+      "sha": "620ba9481ba0ea0508903fb4b87130de3169bcaa"
+    },
+    {
+      "name": "index.md",
+      "path": "knowledge-base/destinations/index.md",
+      "size": 2450,
+      "sha": "30fbeef2f0897ae42c101fe862d9e4c972bea9b3"
+    },
+    {
+      "name": "manage.md",
+      "path": "knowledge-base/destinations/manage.md",
+      "size": 3791,
+      "sha": "e74f7dab72cc36ff108a7c648d5bf5a7381e4f6a"
+    },
+    {
+      "name": "dns-configuration.md",
+      "path": "knowledge-base/dns-configuration.md",
+      "size": 2009,
+      "sha": "1062353263d66fae65a389588dd63e966277505f"
+    },
+    {
+      "name": "compose.md",
+      "path": "knowledge-base/docker/compose.md",
+      "size": 8257,
+      "sha": "ee3e8fafc11415d302b5a8c17063f2cfe8d6d9f6"
+    },
+    {
+      "name": "custom-commands.md",
+      "path": "knowledge-base/docker/custom-commands.md",
+      "size": 846,
+      "sha": "918cf4d07669b8d701a8543e7cfb89000e4be3a8"
+    },
+    {
+      "name": "registry.md",
+      "path": "knowledge-base/docker/registry.md",
+      "size": 2418,
+      "sha": "b080cd9736cb07f437e203e1f15ae2469621ddea"
+    },
+    {
+      "name": "swarm.md",
+      "path": "knowledge-base/docker/swarm.md",
+      "size": 3866,
+      "sha": "609ca469993cd986981c1e25caa8e494604ed380"
+    },
+    {
+      "name": "domains.md",
+      "path": "knowledge-base/domains.md",
+      "size": 1068,
+      "sha": "407b158cdf84d4bc98501f3c4edf655d19f08ccd"
+    },
+    {
+      "name": "drain-logs.md",
+      "path": "knowledge-base/drain-logs.md",
+      "size": 1199,
+      "sha": "6904ee37bdfac3bd300b1166acf9f37933da1aca"
+    },
+    {
+      "name": "environment-variables.md",
+      "path": "knowledge-base/environment-variables.md",
+      "size": 3115,
+      "sha": "35b177bbf751c3ec08dcfc03044f09a5e740938e"
+    },
+    {
+      "name": "faq.md",
+      "path": "knowledge-base/faq.md",
+      "size": 1889,
+      "sha": "a9856720f79c00566cef4e43d1cd4fda5d60650c"
+    },
+    {
+      "name": "integration.md",
+      "path": "knowledge-base/git/bitbucket/integration.md",
+      "size": 2837,
+      "sha": "a0dd08d058e2e66ff3026692cf1f2ea5bce2b792"
+    },
+    {
+      "name": "integration.md",
+      "path": "knowledge-base/git/gitea/integration.md",
+      "size": 2782,
+      "sha": "e9924b91059489f05038c54232d4017752e26ce0"
+    },
+    {
+      "name": "github-actions.md",
+      "path": "knowledge-base/git/github/github-actions.md",
+      "size": 1558,
+      "sha": "50744a60576f7ab48ba7b5b8ab96815f7762b584"
+    },
+    {
+      "name": "integration.md",
+      "path": "knowledge-base/git/github/integration.md",
+      "size": 3409,
+      "sha": "ab28164a6a58642ae8b67d3f8f768ae94b047f13"
+    },
+    {
+      "name": "manually-setup-github-app.md",
+      "path": "knowledge-base/git/github/manually-setup-github-app.md",
+      "size": 1992,
+      "sha": "70dbcdedd479e32e4337eb1a71f6b660bf61d9b6"
+    },
+    {
+      "name": "move-between-github-apps.md",
+      "path": "knowledge-base/git/github/move-between-github-apps.md",
+      "size": 1141,
+      "sha": "e93c4f079b093033dfaaabcbd9864ee858c1fc81"
+    },
+    {
+      "name": "integration.md",
+      "path": "knowledge-base/git/gitlab/integration.md",
+      "size": 2636,
+      "sha": "b7005844080c4b88f270f401c9a9ff9646e8000c"
+    },
+    {
+      "name": "health-checks.md",
+      "path": "knowledge-base/health-checks.md",
+      "size": 2718,
+      "sha": "b9930ac058e7765671771000593185f52e0053ff"
+    },
+    {
+      "name": "backup-restore-coolify.md",
+      "path": "knowledge-base/how-to/backup-restore-coolify.md",
+      "size": 7997,
+      "sha": "0eee8b191849fd6fa682f67e267667b2522f87ca"
+    },
+    {
+      "name": "hetzner-loadbalancing.md",
+      "path": "knowledge-base/how-to/hetzner-loadbalancing.md",
+      "size": 7747,
+      "sha": "f0aa0ddcbe6ec6922c40899ae1ea2afd1813fff4"
+    },
+    {
+      "name": "migrate-apps-different-host.md",
+      "path": "knowledge-base/how-to/migrate-apps-different-host.md",
+      "size": 18201,
+      "sha": "ef0b93d828c0decac526270bc5ef3de7e8e7193a"
+    },
+    {
+      "name": "ollama-with-gpu.md",
+      "path": "knowledge-base/how-to/ollama-with-gpu.md",
+      "size": 1117,
+      "sha": "207d557ae5ba2478880f4aaccd1976d032136947"
+    },
+    {
+      "name": "private-npm-registry.md",
+      "path": "knowledge-base/how-to/private-npm-registry.md",
+      "size": 516,
+      "sha": "913fefe8eb7de7a541d9fe65c1623a868e1867f9"
+    },
+    {
+      "name": "raspberry-pi-os.md",
+      "path": "knowledge-base/how-to/raspberry-pi-os.md",
+      "size": 1979,
+      "sha": "0c0aab0af911d0998dbe5b87b0eaf21bb67fd1aa"
+    },
+    {
+      "name": "wordpress-multisite.md",
+      "path": "knowledge-base/how-to/wordpress-multisite.md",
+      "size": 1494,
+      "sha": "50a399e9d7bf5ab3bc40945068b3151379e9fde3"
+    },
+    {
+      "name": "scalability.md",
+      "path": "knowledge-base/internal/scalability.md",
+      "size": 3079,
+      "sha": "1c56d4bd2d752ccc27fcef8093a278c942d60332"
+    },
+    {
+      "name": "terminal.md",
+      "path": "knowledge-base/internal/terminal.md",
+      "size": 1931,
+      "sha": "db43c90ffec26262e429ffe680b6899089990614"
+    },
+    {
+      "name": "monitoring.md",
+      "path": "knowledge-base/monitoring.md",
+      "size": 412,
+      "sha": "201f85f7a08ab93def37f686ea24bd46e60677c6"
+    },
+    {
+      "name": "notifications.md",
+      "path": "knowledge-base/notifications.md",
+      "size": 7796,
+      "sha": "9d8f927b02400a0234498061d59ea4ef4615f0d1"
+    },
+    {
+      "name": "oauth.md",
+      "path": "knowledge-base/oauth.md",
+      "size": 1796,
+      "sha": "b665c7a0d723164036eef29c1f0d54340f83320c"
+    },
+    {
+      "name": "overview.md",
+      "path": "knowledge-base/overview.md",
+      "size": 284,
+      "sha": "e9330091effc8866c1509bbd1c969640c91f166e"
+    },
+    {
+      "name": "persistent-storage.md",
+      "path": "knowledge-base/persistent-storage.md",
+      "size": 1633,
+      "sha": "b782b58e1e1de5fb5af3b323827fae519f0cb460"
+    },
+    {
+      "name": "basic-auth.md",
+      "path": "knowledge-base/proxy/caddy/basic-auth.md",
+      "size": 2253,
+      "sha": "a067966c0ee7f145bdb3f98dbfbedd282556e4bf"
+    },
+    {
+      "name": "overview.md",
+      "path": "knowledge-base/proxy/caddy/overview.md",
+      "size": 1910,
+      "sha": "73b4be24dd33a877450173b881a0451f043b2713"
+    },
+    {
+      "name": "basic-auth.md",
+      "path": "knowledge-base/proxy/traefik/basic-auth.md",
+      "size": 5976,
+      "sha": "ba6d3f08d5ab56dec78f8e45ffcc791918cc9c1d"
+    },
+    {
+      "name": "custom-ssl-certs.md",
+      "path": "knowledge-base/proxy/traefik/custom-ssl-certs.md",
+      "size": 2104,
+      "sha": "692356a513d6386327a8aa12a808cdf8638ca77f"
+    },
+    {
+      "name": "dashboard.md",
+      "path": "knowledge-base/proxy/traefik/dashboard.md",
+      "size": 1967,
+      "sha": "e069b89a39def8bdc5776448983f0aa6ac4ececb"
+    },
+    {
+      "name": "dynamic-config.md",
+      "path": "knowledge-base/proxy/traefik/dynamic-config.md",
+      "size": 374,
+      "sha": "0b97ad0b702bf8e4f67ea7b6679c9fa7bf95cbda"
+    },
+    {
+      "name": "load-balancing.md",
+      "path": "knowledge-base/proxy/traefik/load-balancing.md",
+      "size": 5556,
+      "sha": "c568d0e8e0ac6dabf4f943921504791f7ddb4377"
+    },
+    {
+      "name": "overview.md",
+      "path": "knowledge-base/proxy/traefik/overview.md",
+      "size": 2885,
+      "sha": "5d074e277e1f82d8ee39256eadabf454f3aff234"
+    },
+    {
+      "name": "protect-services-with-authentik.md",
+      "path": "knowledge-base/proxy/traefik/protect-services-with-authentik.md",
+      "size": 2198,
+      "sha": "e47291b6377fdd9459571904557d23d6a42b912f"
+    },
+    {
+      "name": "redirects.md",
+      "path": "knowledge-base/proxy/traefik/redirects.md",
+      "size": 3720,
+      "sha": "0bef33e07310f0ca58c7a5b03c135522073699d4"
+    },
+    {
+      "name": "wildcard-certs.md",
+      "path": "knowledge-base/proxy/traefik/wildcard-certs.md",
+      "size": 7289,
+      "sha": "108f515846ef13a7b47f31c543fc4f5b422003b2"
+    },
+    {
+      "name": "rolling-updates.md",
+      "path": "knowledge-base/rolling-updates.md",
+      "size": 3179,
+      "sha": "07af69ee5e93f2333d9240cf93af781e5f97a29e"
+    },
+    {
+      "name": "aws.md",
+      "path": "knowledge-base/s3/aws.md",
+      "size": 7911,
+      "sha": "a17cb2de300d4e4879bfb211b368bbae0f114d45"
+    },
+    {
+      "name": "introduction.md",
+      "path": "knowledge-base/s3/introduction.md",
+      "size": 886,
+      "sha": "cc847e1d641be37aa6bbe520a1fe0d78ea8e7c48"
+    },
+    {
+      "name": "r2.md",
+      "path": "knowledge-base/s3/r2.md",
+      "size": 685,
+      "sha": "36c50123cd1d7c9ebac90b913e6a877f5e8dbedd"
+    },
+    {
+      "name": "self-update.md",
+      "path": "knowledge-base/self-update.md",
+      "size": 1486,
+      "sha": "e749ad50cc227ce01929f58b3cc9dc990c597ae7"
+    },
+    {
+      "name": "automated-cleanup.md",
+      "path": "knowledge-base/server/automated-cleanup.md",
+      "size": 1807,
+      "sha": "34a49b877cdad335954f2fb424ad3274251882b4"
+    },
+    {
+      "name": "build-server.md",
+      "path": "knowledge-base/server/build-server.md",
+      "size": 1283,
+      "sha": "7cef956162b2aa05690993f491213d67a51086c0"
+    },
+    {
+      "name": "firewall.md",
+      "path": "knowledge-base/server/firewall.md",
+      "size": 4024,
+      "sha": "d13e287b78ac9063cad3de6dbb04334793cbda3c"
+    },
+    {
+      "name": "introduction.md",
+      "path": "knowledge-base/server/introduction.md",
+      "size": 4564,
+      "sha": "1ee6f0bfa7dfebed0081636eb0ee6c737b6ce85c"
+    },
+    {
+      "name": "multiple-servers.md",
+      "path": "knowledge-base/server/multiple-servers.md",
+      "size": 2428,
+      "sha": "b511790844062101626289c980cfc224cd9948a8"
+    },
+    {
+      "name": "non-root-user.md",
+      "path": "knowledge-base/server/non-root-user.md",
+      "size": 1001,
+      "sha": "ee0dbc0bd8ccc01727a158712e30afcf343d26bd"
+    },
+    {
+      "name": "openssh.md",
+      "path": "knowledge-base/server/openssh.md",
+      "size": 3135,
+      "sha": "0517f4e8d2e4c4e8e59e00395cb62f6e9a925e8b"
+    },
+    {
+      "name": "oracle-cloud.md",
+      "path": "knowledge-base/server/oracle-cloud.md",
+      "size": 1162,
+      "sha": "7f66c80e50bcaa891c535fe70ded8b94bf07bcba"
+    },
+    {
+      "name": "patching.md",
+      "path": "knowledge-base/server/patching.md",
+      "size": 2524,
+      "sha": "63af9616ca0248eab2ba69db321abf1741594a57"
+    },
+    {
+      "name": "proxies.md",
+      "path": "knowledge-base/server/proxies.md",
+      "size": 952,
+      "sha": "bdef1d63314d688521cb2f3992df9ed5e067c8ff"
+    },
+    {
+      "name": "sentinel.md",
+      "path": "knowledge-base/server/sentinel.md",
+      "size": 1437,
+      "sha": "ab2ff5cd7ca29e2c063f39bbaf1fffbd9ad8ae32"
+    },
+    {
+      "name": "terminal-access.md",
+      "path": "knowledge-base/server/terminal-access.md",
+      "size": 1111,
+      "sha": "f7d417defc37b549351c704e2672cfc2e21c6035"
+    }
+  ]
+}

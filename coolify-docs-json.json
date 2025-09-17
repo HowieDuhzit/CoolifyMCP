@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "source": {
+      "repository": "coollabsio/coolify-docs",
+      "branch": "v4.x",
+      "url": "https://github.com/coollabsio/coolify-docs",
+      "docs_url": "https://coolify.io/docs"
+    },
+    "generation": {
+      "timestamp": "2025-09-17T04:05:07.846115",
+      "total_files": 127,
+      "total_size": 431524
+    },
+    "totalFiles": 127,
+    "totalTerms": 2004
+  },
+  "categories": {
+    "installation": [
+      {
+        "name": "installation.md",
+        "path": "get-started/installation.md",
+        "size": 10748,
+        "sha": "d2491094b545c11eed334588044e2bdfcd86561c"
+      },
+      {
+        "name": "uninstallation.md",
+        "path": "get-started/uninstallation.md",
+        "size": 2898,
+        "sha": "a4d763dbedd47a89b4e768a1120b5815d9687c72"
+      },
+      {
+        "name": "manually-setup-github-app.md",
+        "path": "knowledge-base/git/github/manually-setup-github-app.md",
+        "size": 1992,
+        "sha": "70dbcdedd479e32e4337eb1a71f6b660bf61d9b6"
+      }
+    ],
+    "deployment": [
+      {
+        "name": "docker-compose.md",
+        "path": "builds/packs/docker-compose.md",
+        "size": 9302,
+        "sha": "1e5e25a91dd2081289edd5e1161b2256c724ddba"
+      },
+      {
+        "name": "dockerfile.md",
+        "path": "builds/packs/dockerfile.md",
+        "size": 4279,
+        "sha": "a1c6a7401b4d9cdb3350fe7fa5cee3da507f8503"
+      },
+      {
+        "name": "custom-docker-registry.md",
+        "path": "knowledge-base/custom-docker-registry.md",
+        "size": 1799,
+        "sha": "31102009a61e49336fa877f03b8e62f3632e0aba"
+      },
+      {
+        "name": "define-custom-docker-network-with-env.md",
+        "path": "knowledge-base/define-custom-docker-network-with-env.md",
+        "size": 2385,
+        "sha": "bf9924c61fdbdc3946e15b173eaba98f885dc542"
+      },
+      {
+        "name": "compose.md",
+        "path": "knowledge-base/docker/compose.md",
+        "size": 8257,
+        "sha": "ee3e8fafc11415d302b5a8c17063f2cfe8d6d9f6"
+      }
+    ],
+    "configuration": [
+      {
+        "name": "create-root-user-with-env.md",
+        "path": "knowledge-base/create-root-user-with-env.md",
+        "size": 3005,
+        "sha": "95a900564e2df7044380339dd258e20856a6f12e"
+      },
+      {
+        "name": "define-custom-docker-network-with-env.md",
+        "path": "knowledge-base/define-custom-docker-network-with-env.md",
+        "size": 2385,
+        "sha": "bf9924c61fdbdc3946e15b173eaba98f885dc542"
+      },
+      {
+        "name": "dns-configuration.md",
+        "path": "knowledge-base/dns-configuration.md",
+        "size": 2009,
+        "sha": "1062353263d66fae65a389588dd63e966277505f"
+      },
+      {
+        "name": "environment-variables.md",
+        "path": "knowledge-base/environment-variables.md",
+        "size": 3115,
+        "sha": "35b177bbf751c3ec08dcfc03044f09a5e740938e"
+      },
+      {
+        "name": "dynamic-config.md",
+        "path": "knowledge-base/proxy/traefik/dynamic-config.md",
+        "size": 374,
+        "sha": "0b97ad0b702bf8e4f67ea7b6679c9fa7bf95cbda"
+      }
+    ],
+    "api": [],
+    "troubleshooting": [],
+    "advanced": [
+      {
+        "name": "custom-docker-registry.md",
+        "path": "knowledge-base/custom-docker-registry.md",
+        "size": 1799,
+        "sha": "31102009a61e49336fa877f03b8e62f3632e0aba"
+      },
+      {
+        "name": "define-custom-docker-network-with-env.md",
+        "path": "knowledge-base/define-custom-docker-network-with-env.md",
+        "size": 2385,
+        "sha": "bf9924c61fdbdc3946e15b173eaba98f885dc542"
+      },
+      {
+        "name": "custom-commands.md",
+        "path": "knowledge-base/docker/custom-commands.md",
+        "size": 846,
+        "sha": "918cf4d07669b8d701a8543e7cfb89000e4be3a8"
+      },
+      {
+        "name": "custom-ssl-certs.md",
+        "path": "knowledge-base/proxy/traefik/custom-ssl-certs.md",
+        "size": 2104,
+        "sha": "692356a513d6386327a8aa12a808cdf8638ca77f"
+      }
+    ]
+  },
+  "searchTerms": [
+    "127",
+    "191",
+    "237",
+    "255",
+    "315",
+    "336",
+    "399",
+    "400",
+    "404",
+    "408",
+    "419",
+    "503",
+    "560",
+    "1000",
+    "1234",
+    "3000",
+    "3060",
+    "3306",
+    "4000",
+    "4096",
+    "5432",
+    "6001",
+    "6002",
+    "6379",
+    "8000",
+    "8080",
+    "999999999",
+    "title",
+    "help",
+    "need",
+    "https",
+    "you",
+    "outline",
+    "aside",
+    "with",
+    "get",
+    "discord",
+    "please",
+    "toc",
+    "reference",
+    "doc",
+    "the",
+    "false",
+    "md",
+    "touch",
+    "index",
+    "layout",
+    "api",
+    "coollabs",
+    "lang",
+    "client",
+    "getcodesampleslangs",
+    "availablelanguages",
+    "openapi",
+    "from",
+    "usetheme",
+    "async",
+    "operation",
+    "script",
+    "generatebrunorequest",
+    "const",
+    "return",
+    "function",
+    "params",
+    "setup",
+    "import",
+    "generatecodesample",
+    "codesamples",
+    "defaultlang",
+    "label",
+    "generator",
+    "request",
+    "themeconfig",
+    "usedata",
+    "value",
+    "langs",
+    "icon",
+    "bruno",
+    "plaintext",
+    "vitepress",
+    "highlighter",
+    "getcodesamplesavailablelanguages",
+    "will",
+    "permissions",
+    "resulting",
+    "scope",
+    "which",
+    "generate",
+    "new",
+    "health",
+    "resources",
+    "there",
+    "team",
+    "authorization",
+    "bearer",
+    "create",
+    "rouce",
+    "returned",
+    "safe",
+    "name"
+  ],
+  "sampleQueries": [
+    "How do I install Coolify?",
+    "How to deploy a Docker application?",
+    "How to configure environment variables?",
+    "How to set up SSL certificates?",
+    "How to troubleshoot deployment issues?",
+    "How to use the Coolify API?",
+    "How to set up monitoring?",
+    "How to configure databases?",
+    "How to use Docker Compose?",
+    "How to set up CI/CD?"
+  ]
+}
