@@ -1,29 +1,130 @@
+# ===========================================
+# Coolify MCP Server - Production .gitignore
+# ===========================================
+
 # Dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
 # Build outputs
 dist/
 build/
+out/
 *.tsbuildinfo
+*.tsbuildinfo.json
 
-# Environment variables
+# Environment variables and secrets
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-config.example.env
+.env.*
+!.env.example
+!.env.template
+config.local.*
+secrets/
+credentials/
 
-# IDE and editor files
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+lib-cov/
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+.nyc_output/
+.coverage/
+htmlcov/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+.pnp
+.pnp.js
+
+# Optional npm cache directory
+.npm
+.npmrc
+
+# Optional eslint cache
+.eslintcache
+.eslintignore
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+*.tar.gz
+
+# Yarn Integrity file
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Package manager lockfiles (keep package-lock.json)
+yarn.lock
+pnpm-lock.yaml
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+.parcelrc
+
+# next.js build output
+.next/
+out/
+
+# nuxt.js build output
+.nuxt/
+dist/
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+.serverless_nextjs/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test/
+
+# IDE and Editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
 
 # OS generated files
 .DS_Store
@@ -33,92 +134,96 @@ config.example.env
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Logs
-logs/
-*.log
-
-# Runtime data
-pids/
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-*.lcov
-
-# nyc test coverage
-.nyc_output/
-
-# Dependency directories
-jspm_packages/
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
-
-# Gatsby files
-.cache/
-public
-
-# Storybook build outputs
-.out
-.storybook-out
-
-# Temporary folders
+# Temporary files and directories
 tmp/
 temp/
+.tmp/
+.temp/
 
-# MCP server specific
-*.mcp.log
-mcp-debug.log
-
-# Test files
+# Test files and coverage
 test-*.js
-*-test.js
+test-*.ts
+verify-*.js
+final-*.js
 *.test.js
+*.test.ts
 *.spec.js
+*.spec.ts
+__tests__/
+test/
+tests/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# MCP specific
+mcp-client-config.json
+mcp-config.json
+.mcp/
+
+# Development and debugging
+debug.log
+error.log
+*.debug
+*.trace
 
 # Backup files
 *.bak
 *.backup
 *.old
+*.orig
 
-# Lock files (keep package-lock.json but ignore others)
-yarn.lock
-pnpm-lock.yaml
+# Archive files
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Local configuration overrides
+local.json
+local.js
+local.ts
+
+# Performance monitoring
+.clinic/
+0x/
 
 # TypeScript
 *.tsbuildinfo
+tsconfig.tsbuildinfo
 
-# Optional: Keep these if you want to track them
-# package-lock.json
-# .gitkeep
+# ESLint
+.eslintcache
+
+# Prettier
+.prettierignore
+
+# Jest
+jest.config.js
+jest.config.ts
+.jest/
+
+# Webpack
+webpack-stats.json
+
+# Rollup
+rollup-stats.json
+
+# Vite
+.vite/
+
+# Turbo
+.turbo/
+
+# Rush
+common/temp/

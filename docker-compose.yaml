@@ -2,26 +2,129 @@ version: '3.8'
 
 services:
   coolify-mcp-server:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+      args:
+        - NODE_ENV=production
+    image: coolify-mcp-server:latest
     container_name: coolify-mcp-server
     restart: unless-stopped
+    
+    # Environment configuration
     environment:
       - NODE_ENV=production
       - COOLIFY_API_TOKEN=${COOLIFY_API_TOKEN}
-      - COOLIFY_BASE_URL=${COOLIFY_BASE_URL}
+      - COOLIFY_BASE_URL=${COOLIFY_BASE_URL:-https://app.coolify.io/api/v1}
+      - PORT=3000
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - HEALTH_CHECK_INTERVAL=${HEALTH_CHECK_INTERVAL:-30}
+      - HEALTH_CHECK_TIMEOUT=${HEALTH_CHECK_TIMEOUT:-10}
+    
+    # Port mapping
     ports:
-      - "3000:3000"
+      - "${PORT:-3000}:3000"
+    
+    # Volume mounts for persistence and logging
     volumes:
-      - ./logs:/app/logs
+      - ./logs:/app/logs:rw
+      - /etc/localtime:/etc/localtime:ro
+    
+    # Resource limits for production
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+    
+    # Health check configuration
     healthcheck:
-      test: ["CMD", "node", "-e", "console.log('MCP Server is healthy')"]
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
+    
+    # Security and networking
+    networks:
+      - coolify-network
+    
+    # Traefik labels for automatic HTTPS and routing
     labels:
+      # Traefik configuration
       - "traefik.enable=true"
       - "traefik.http.routers.coolify-mcp-server.rule=Host(`coolify-mcp-server.SleepyStudio.xyz`)"
+      - "traefik.http.routers.coolify-mcp-server.entrypoints=websecure"
       - "traefik.http.routers.coolify-mcp-server.tls=true"
       - "traefik.http.routers.coolify-mcp-server.tls.certresolver=letsencrypt"
       - "traefik.http.services.coolify-mcp-server.loadbalancer.server.port=3000"
+      
+      # Coolify specific labels
+      - "coolify.managed=true"
+      - "coolify.type=application"
+      - "coolify.name=coolify-mcp-server"
+      - "coolify.description=Coolify MCP Server - 100% API Coverage"
+      
+      # Docker Compose labels
+      - "com.docker.compose.project=coolify-mcp"
+      - "com.docker.compose.service=coolify-mcp-server"
+      
+      # Health check labels
+      - "traefik.http.routers.coolify-mcp-server.middlewares=health-check"
+      - "traefik.http.middlewares.health-check.healthcheck.path=/health"
+      - "traefik.http.middlewares.health-check.healthcheck.interval=30s"
+      
+      # Security headers
+      - "traefik.http.middlewares.security-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.middlewares.security-headers.headers.customrequestheaders.X-Forwarded-For="
+      - "traefik.http.routers.coolify-mcp-server.middlewares=security-headers"
+      
+      # Rate limiting
+      - "traefik.http.middlewares.rate-limit.ratelimit.burst=100"
+      - "traefik.http.middlewares.rate-limit.ratelimit.average=50"
+      - "traefik.http.routers.coolify-mcp-server.middlewares=rate-limit"
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "service=coolify-mcp-server,environment=production"
+    
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+    
+    # User and group
+    user: "1001:1001"
+    
+    # Read-only root filesystem for security
+    read_only: true
+    
+    # Temporary filesystem for writable areas
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+      - /app/logs:noexec,nosuid,size=100m
+
+# Network configuration
+networks:
+  coolify-network:
+    driver: bridge
+    name: coolify-mcp-network
+    labels:
+      - "coolify.managed=true"
+      - "coolify.network=coolify-mcp"
+
+# Volume configuration
+volumes:
+  logs:
+    driver: local
+    name: coolify-mcp-logs
+    labels:
+      - "coolify.managed=true"
+      - "coolify.volume=logs"
