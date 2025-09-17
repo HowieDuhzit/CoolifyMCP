@@ -1,29 +1,67 @@
 # Coolify MCP Server
 
-A comprehensive Model Context Protocol (MCP) server that provides complete access to all Coolify API endpoints. This server enables AI assistants to interact with Coolify for managing applications, databases, servers, deployments, and more.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)](https://www.docker.com/)
 
-## 🚀 Features
+A comprehensive **Model Context Protocol (MCP)** server that provides complete access to all Coolify API endpoints. This server enables AI assistants to interact with Coolify for managing applications, databases, servers, deployments, and more.
 
-- **100% API Coverage**: Complete implementation of all 66 Coolify API endpoints
-- **64 MCP Tools**: Full access to Coolify's functionality through MCP protocol
-- **Type Safety**: Built with TypeScript for robust error handling
-- **Production Ready**: Docker support, health checks, and proper logging
-- **Comprehensive**: Supports all Coolify features including:
-  - Team and Project Management
-  - Application Lifecycle Management
-  - Database Management (PostgreSQL, MySQL, MongoDB, Redis)
-  - Server Management and Validation
-  - Service Management
-  - Deployment Management
-  - Environment Variables
-  - Security Keys Management
+## 📖 Table of Contents
+
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Prerequisites](#-prerequisites)
+- [Installation](#️-installation)
+- [Configuration](#️-configuration)
+- [Available Tools](#-available-tools)
+- [Development](#️-development)
+- [API Coverage](#-api-coverage)
+- [Production Deployment](#-production-deployment)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+## ✨ Features
+
+- **🎯 100% API Coverage**: Complete implementation of all 66 Coolify API endpoints
+- **🛠️ 64 MCP Tools**: Full access to Coolify's functionality through MCP protocol
+- **🔒 Type Safety**: Built with TypeScript for robust error handling and development experience
+- **🚀 Production Ready**: Docker support, health checks, proper logging, and monitoring
+- **📦 Modular Architecture**: Clean, maintainable codebase with separated concerns
+- **🔧 Comprehensive**: Supports all Coolify features including:
+  - 👥 Team and Project Management
+  - 🚀 Application Lifecycle Management
+  - 🗄️ Database Management (PostgreSQL, MySQL, MongoDB, Redis, etc.)
+  - 🖥️ Server Management and Validation
+  - 🐳 Service Management (Docker Compose)
+  - 📦 Deployment Management
+  - 🔐 Environment Variables
+  - 🔑 Security Keys Management
+
+## 🚀 Quick Start
+
+```bash
+# Clone and install
+git clone https://github.com/HowieDuhzit/CoolifyMCP.git
+cd CoolifyMCP
+npm install
+
+# Configure
+cp config.example.env .env
+# Edit .env with your Coolify API token
+
+# Build and run
+npm run build
+npm start
+```
 
 ## 📋 Prerequisites
 
-- Node.js 20+ 
-- npm or yarn
-- Coolify API token
-- Coolify instance URL
+- **Node.js 20+** - [Download](https://nodejs.org/)
+- **npm 9+** or **yarn** - Package manager
+- **Coolify API token** - Get from your Coolify dashboard
+- **Coolify instance URL** - Your Coolify instance (default: `https://app.coolify.io/api/v1`)
 
 ## 🛠️ Installation
 
@@ -271,13 +309,40 @@ MIT License - see LICENSE file for details.
 4. Add tests if applicable
 5. Submit a pull request
 
+## 📚 Documentation
+
+- **[API Reference](API_REFERENCE.md)** - Complete reference for all 64 MCP tools
+- **[Troubleshooting Guide](TROUBLESHOOTING.md)** - Common issues and solutions
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to the project
+- **[Changelog](CHANGELOG.md)** - Version history and changes
+- **[Production Checklist](PRODUCTION_CHECKLIST.md)** - Production deployment guide
+
 ## 📞 Support
 
 For issues and questions:
-- Create an issue in the repository
-- Check the Coolify documentation
-- Review the API cheat sheet in `apiCheetSheet.md`
+- 📝 [Create an issue](https://github.com/HowieDuhzit/CoolifyMCP/issues) in the repository
+- 📖 Check the [Coolify documentation](https://coolify.io/docs)
+- 🔍 Review the [API cheat sheet](apiCheetSheet.md)
+- 💬 Join the [Coolify community](https://discord.gg/coolify)
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 **Built with ❤️ for the Coolify community**
+
+[![GitHub stars](https://img.shields.io/github/stars/HowieDuhzit/CoolifyMCP?style=social)](https://github.com/HowieDuhzit/CoolifyMCP)
+[![GitHub forks](https://img.shields.io/github/forks/HowieDuhzit/CoolifyMCP?style=social)](https://github.com/HowieDuhzit/CoolifyMCP)
+[![GitHub issues](https://img.shields.io/github/issues/HowieDuhzit/CoolifyMCP)](https://github.com/HowieDuhzit/CoolifyMCP/issues)

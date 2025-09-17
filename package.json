@@ -1,16 +1,24 @@
 {
   "name": "coolify-mcp-server",
   "version": "1.0.0",
-  "description": "Comprehensive MCP server providing 100% coverage of Coolify API endpoints",
+  "description": "Comprehensive Model Context Protocol (MCP) server providing 100% coverage of Coolify API endpoints for AI assistants",
   "main": "dist/index.js",
   "type": "module",
+  "bin": {
+    "coolify-mcp-server": "./dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "prestart": "npm run build"
+    "prestart": "npm run build",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"No tests specified\" && exit 0",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.4.0",
@@ -19,15 +27,34 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
     "rimraf": "^5.0.0",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0"
   },
-  "keywords": ["mcp", "coolify", "api", "deployment", "infrastructure", "docker", "devops"],
-  "author": "Coolify MCP Server",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "coolify",
+    "api",
+    "deployment",
+    "infrastructure",
+    "docker",
+    "devops",
+    "ai",
+    "assistant",
+    "automation"
+  ],
+  "author": {
+    "name": "Coolify MCP Server",
+    "email": "support@coolify.io"
+  },
   "license": "MIT",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
   },
   "repository": {
     "type": "git",
@@ -36,5 +63,20 @@
   "bugs": {
     "url": "https://github.com/HowieDuhzit/CoolifyMCP/issues"
   },
-  "homepage": "https://github.com/HowieDuhzit/CoolifyMCP#readme"
+  "homepage": "https://github.com/HowieDuhzit/CoolifyMCP#readme",
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ]
 }

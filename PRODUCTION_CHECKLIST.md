@@ -65,7 +65,7 @@ docker-compose up -d
 
 | Variable | Description | Required | Example |
 |----------|-------------|----------|---------|
-| `COOLIFY_API_TOKEN` | Coolify API token | Yes | `2|abc123...` |
+| `COOLIFY_API_TOKEN` | Coolify API token | Yes | `2\|abc123...` |
 | `COOLIFY_BASE_URL` | Coolify API base URL | Yes | `https://app.coolify.io/api/v1` |
 | `NODE_ENV` | Environment mode | No | `production` |
 | `PORT` | Health check port | No | `3000` |
