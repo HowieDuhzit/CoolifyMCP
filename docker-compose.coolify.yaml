@@ -2,12 +2,11 @@ version: '3.8'
 
 services:
   coolify-mcp-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: coolify-mcp-server:latest
     container_name: coolify-mcp-server
     restart: unless-stopped
     
+    # Environment configuration
     environment:
       - NODE_ENV=production
       - COOLIFY_API_TOKEN=${COOLIFY_API_TOKEN}
@@ -15,12 +14,15 @@ services:
       - PORT=3000
       - LOG_LEVEL=${LOG_LEVEL:-info}
     
+    # Port mapping
     ports:
       - "3000:3000"
     
+    # Volume mounts
     volumes:
       - /etc/localtime:/etc/localtime:ro
     
+    # Health check
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
       interval: 30s
@@ -28,9 +30,11 @@ services:
       retries: 3
       start_period: 40s
     
+    # Coolify network
     networks:
       - coolify
     
+    # Traefik labels for automatic HTTPS
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.coolify-mcp-server.rule=Host(`${SERVICE_FQDN}`)"
@@ -60,12 +64,14 @@ services:
       - "traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=https://app.coolify.io,https://coolify.io"
       - "traefik.http.routers.coolify-mcp-server.middlewares=cors"
     
+    # Logging
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
     
+    # Security
     security_opt:
       - no-new-privileges:true
     user: "1001:1001"
@@ -73,6 +79,7 @@ services:
     tmpfs:
       - /tmp:noexec,nosuid,size=100m
 
+# Use Coolify's external network
 networks:
   coolify:
     external: true

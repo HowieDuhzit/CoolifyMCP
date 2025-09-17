@@ -1,0 +1,50 @@
+{
+  "name": "Coolify MCP Server",
+  "description": "Model Context Protocol server providing 18 consolidated tools with 100% coverage of Coolify API endpoints",
+  "version": "1.0.0",
+  "type": "docker-compose",
+  "dockerComposeFile": "docker-compose.coolify.yaml",
+  "environment": {
+    "NODE_ENV": "production",
+    "PORT": "3000",
+    "LOG_LEVEL": "info"
+  },
+  "requiredEnvironmentVariables": [
+    "COOLIFY_API_TOKEN",
+    "COOLIFY_BASE_URL"
+  ],
+  "optionalEnvironmentVariables": [
+    "LOG_LEVEL"
+  ],
+  "healthCheck": {
+    "path": "/health",
+    "interval": 30,
+    "timeout": 10,
+    "retries": 3
+  },
+  "ports": [
+    {
+      "container": 3000,
+      "host": 3000,
+      "protocol": "http"
+    }
+  ],
+  "volumes": [
+    {
+      "host": "/etc/localtime",
+      "container": "/etc/localtime",
+      "readOnly": true
+    }
+  ],
+  "networks": [
+    "coolify"
+  ],
+  "labels": {
+    "traefik.enable": "true",
+    "traefik.http.routers.coolify-mcp-server.rule": "Host(`${SERVICE_FQDN}`)",
+    "traefik.http.routers.coolify-mcp-server.entrypoints": "websecure",
+    "traefik.http.routers.coolify-mcp-server.tls": "true",
+    "traefik.http.routers.coolify-mcp-server.tls.certresolver": "letsencrypt",
+    "traefik.http.services.coolify-mcp-server.loadbalancer.server.port": "3000"
+  }
+}

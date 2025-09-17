@@ -7,19 +7,14 @@ RUN apk add --no-cache python3 make g++
 # Set working directory
 WORKDIR /app
 
-# Copy package files
+# Copy all files needed for build
 COPY package*.json ./
-
-# Install all dependencies (including dev dependencies for build)
-RUN npm ci --only=production=false
-
-# Copy source code and configuration
 COPY src/ ./src/
 COPY tsconfig.json ./
 COPY .eslintrc.json ./
 
-# Build the TypeScript code
-RUN npm run build
+# Install dependencies and build
+RUN npm install --include=dev && npm run build
 
 # Production stage
 FROM node:20-alpine AS production
