@@ -5,7 +5,9 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)](https://www.docker.com/)
 
-A comprehensive **Model Context Protocol (MCP)** server that provides complete access to all Coolify API endpoints. CoolifyMCP enables AI assistants to interact with Coolify for managing applications, databases, servers, deployments, and more.
+A comprehensive **Model Context Protocol (MCP)** server that provides complete access to all [Coolify](https://github.com/coollabsio/coolify) API endpoints. CoolifyMCP enables AI assistants to interact with Coolify for managing applications, databases, servers, deployments, and more.
+
+> **Built for [Coolify](https://github.com/coollabsio/coolify)** - An open-source & self-hostable Heroku / Netlify / Vercel alternative
 
 ## 📖 Table of Contents
 
@@ -27,14 +29,14 @@ A comprehensive **Model Context Protocol (MCP)** server that provides complete a
 - **🎯 100% API Coverage**: Complete implementation of all Coolify API endpoints
 - **🛠️ 18 Consolidated MCP Tools**: Streamlined access to Coolify's functionality through MCP protocol
 - **🔒 Type Safety**: Built with TypeScript for robust error handling and development experience
-- **🚀 Production Ready**: Docker support, health checks, proper logging, and monitoring
+- **🚀 Production Ready**: Health checks, proper logging, and monitoring
 - **📦 Modular Architecture**: Clean, maintainable codebase with separated concerns
 - **🔧 Comprehensive**: Supports all Coolify features including:
   - 👥 Team and Project Management
   - 🚀 Application Lifecycle Management
   - 🗄️ Database Management (PostgreSQL, MySQL, MongoDB, Redis, etc.)
   - 🖥️ Server Management and Validation
-  - 🐳 Service Management (Docker Compose)
+  - 🐳 Service Management
   - 📦 Deployment Management
   - 🔐 Environment Variables
   - 🔑 Security Keys Management
@@ -51,15 +53,6 @@ npm install -g coolifymcp
 coolifymcp
 ```
 
-### Docker Installation
-```bash
-# Run with Docker
-docker run --rm -i \
-  -e COOLIFY_API_TOKEN="your_token_here" \
-  -e COOLIFY_BASE_URL="https://your-coolify-instance.com/api/v1" \
-  howieduhzit/coolifymcp:latest
-```
-
 ### Local Development
 ```bash
 # Clone and install
@@ -67,24 +60,39 @@ git clone https://github.com/howieduhzit/coolifymcp.git
 cd coolifymcp
 npm install
 npm run build
-npm start
+
+# Run with environment variables
+COOLIFY_API_TOKEN="your_token_here" COOLIFY_BASE_URL="https://your-coolify-instance.com/api/v1" npm start
 ```
 
 ## 📋 Prerequisites
 
 - **Node.js 20+** - [Download](https://nodejs.org/)
 - **npm 9+** or **yarn** - Package manager
-- **Coolify API token** - Get from your Coolify dashboard
+- **Coolify API token** - Get from your [Coolify dashboard](https://github.com/coollabsio/coolify)
 - **Coolify instance URL** - Your Coolify instance (default: `https://app.coolify.io/api/v1`)
 
 ## 🛠️ Installation
+
+### NPM Installation (Recommended)
+
+1. Install and run with npx (no installation needed):
+```bash
+npx coolifymcp
+```
+
+2. Or install globally:
+```bash
+npm install -g coolifymcp
+coolifymcp
+```
 
 ### Local Development
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd coolify-mcp-server
+git clone https://github.com/howieduhzit/coolifymcp.git
+cd coolifymcp
 ```
 
 2. Install dependencies:
@@ -97,37 +105,9 @@ npm install
 npm run build
 ```
 
-4. Set up environment variables:
+4. Run with environment variables:
 ```bash
-cp config.example.env .env
-# Edit .env with your Coolify credentials
-```
-
-5. Run the server:
-```bash
-npm start
-```
-
-### Docker Deployment
-
-1. Build the Docker image:
-```bash
-docker build -t coolify-mcp-server .
-```
-
-2. Run with environment variables:
-```bash
-docker run -d \
-  -e COOLIFY_API_TOKEN="your_token_here" \
-  -e COOLIFY_BASE_URL="https://your-coolify-instance.com/api/v1" \
-  -p 3000:3000 \
-  coolify-mcp-server
-```
-
-### Docker Compose
-
-```bash
-docker-compose up -d
+COOLIFY_API_TOKEN="your_token_here" COOLIFY_BASE_URL="https://your-coolify-instance.com/api/v1" npm start
 ```
 
 ## ⚙️ Configuration
@@ -137,7 +117,7 @@ docker-compose up -d
 | Variable | Description | Required | Default |
 |----------|-------------|----------|---------|
 | `COOLIFY_API_TOKEN` | Your Coolify API token | Yes | - |
-| `COOLIFY_BASE_URL` | Coolify API base URL | Yes | `https://app.coolify.io/api/v1` |
+| `COOLIFY_BASE_URL` | Coolify API base URL | No | `https://app.coolify.io/api/v1` |
 | `NODE_ENV` | Environment mode | No | `development` |
 | `PORT` | Health check server port | No | `3000` |
 
@@ -145,34 +125,12 @@ docker-compose up -d
 
 Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
 
-#### NPM Installation (Recommended)
 ```json
 {
   "mcpServers": {
     "coolifymcp": {
       "command": "npx",
       "args": ["coolifymcp"],
-      "env": {
-        "COOLIFY_API_TOKEN": "your_token_here",
-        "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"
-      }
-    }
-  }
-}
-```
-
-#### Docker Installation
-```json
-{
-  "mcpServers": {
-    "coolifymcp": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "howieduhzit/coolifymcp:latest"
-      ],
       "env": {
         "COOLIFY_API_TOKEN": "your_token_here",
         "COOLIFY_BASE_URL": "https://your-coolify-instance.com/api/v1"
@@ -287,16 +245,6 @@ This MCP server provides **100% coverage** of the Coolify API with **18 consolid
 
 The server includes a health check endpoint at `/health` when running in production mode (`NODE_ENV=production`).
 
-### Docker Deployment
-
-The included `Dockerfile` and `docker-compose.yaml` provide production-ready containerization with:
-
-- Multi-stage build for optimized image size
-- Health checks
-- Proper signal handling
-- Environment variable configuration
-- Port exposure for health checks
-
 ### Environment Configuration
 
 For production deployment, ensure:
@@ -321,13 +269,8 @@ MIT License - see LICENSE file for details.
 
 ## 📚 Documentation
 
-- **[Tools Reference](TOOLS_REFERENCE.md)** - Detailed documentation for all 18 available tools
-- **[API Reference](API_REFERENCE.md)** - Complete reference for all Coolify API endpoints
-- **[MCP Catalog Installation](MCP_CATALOG_INSTALLATION.md)** - Installation guide for MCP catalog
-- **[Deployment Guide](DEPLOYMENT_GUIDE.md)** - Production deployment instructions
-- **[Troubleshooting Guide](TROUBLESHOOTING.md)** - Common issues and solutions
-- **[Changelog](CHANGELOG.md)** - Version history and changes
-- **[Production Checklist](PRODUCTION_CHECKLIST.md)** - Production deployment checklist
+- **README.md** - Complete documentation and usage examples
+- **GitHub Repository** - Source code and issue tracking
 
 ## 📞 Support
 
@@ -336,6 +279,15 @@ For issues and questions:
 - 📖 Check the [Coolify documentation](https://coolify.io/docs)
 - 💬 Join the [Coolify community](https://discord.gg/coolify)
 
+## 🙏 Acknowledgments
+
+This project is built for and powered by [Coolify](https://github.com/coollabsio/coolify) - an amazing open-source platform that makes self-hosting applications incredibly easy. Special thanks to the Coolify team and community for creating such a powerful tool.
+
+- 🌟 [Coolify on GitHub](https://github.com/coollabsio/coolify) - The main Coolify project
+- 🌐 [Coolify Website](https://coolify.io) - Official website and documentation
+- 📚 [Coolify Documentation](https://coolify.io/docs) - Complete documentation
+- 💬 [Coolify Discord](https://discord.gg/coolify) - Community support
+
 
 ## 📄 License
 
@@ -343,8 +295,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ for the Coolify community**
+**Built with ❤️ for the [Coolify](https://github.com/coollabsio/coolify) community**
 
 [![GitHub stars](https://img.shields.io/github/stars/howieduhzit/coolifymcp?style=social)](https://github.com/howieduhzit/coolifymcp)
 [![GitHub forks](https://img.shields.io/github/forks/howieduhzit/coolifymcp?style=social)](https://github.com/howieduhzit/coolifymcp)
 [![GitHub issues](https://img.shields.io/github/issues/howieduhzit/coolifymcp)](https://github.com/howieduhzit/coolifymcp/issues)
+
+---
+
+**Powered by [Coolify](https://github.com/coollabsio/coolify)** - An open-source & self-hostable Heroku / Netlify / Vercel alternative with 45.2k+ stars ⭐
