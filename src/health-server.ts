@@ -1,7 +1,8 @@
 import { HealthCheckResponse } from './types.js';
+import * as http from 'http';
 
 export class HealthServer {
-  private server?: any;
+  private server?: http.Server;
   private startTime: Date;
 
   constructor() {
@@ -9,9 +10,8 @@ export class HealthServer {
   }
 
   start(port: number = 3000): void {
-    const http = require('http');
     
-    this.server = http.createServer((req: any, res: any) => {
+    this.server = http.createServer((req: http.IncomingMessage, res: http.ServerResponse) => {
       if (req.url === '/health') {
         const response: HealthCheckResponse = {
           status: 'healthy',

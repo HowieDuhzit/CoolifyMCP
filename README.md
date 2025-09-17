@@ -24,8 +24,8 @@ A comprehensive **Model Context Protocol (MCP)** server that provides complete a
 
 ## ✨ Features
 
-- **🎯 100% API Coverage**: Complete implementation of all 83+ Coolify API endpoints
-- **🛠️ 83+ MCP Tools**: Full access to Coolify's functionality through MCP protocol
+- **🎯 100% API Coverage**: Complete implementation of all Coolify API endpoints
+- **🛠️ 18 Consolidated MCP Tools**: Streamlined access to Coolify's functionality through MCP protocol
 - **🔒 Type Safety**: Built with TypeScript for robust error handling and development experience
 - **🚀 Production Ready**: Docker support, health checks, proper logging, and monitoring
 - **📦 Modular Architecture**: Clean, maintainable codebase with separated concerns
@@ -148,107 +148,60 @@ Add to your MCP client configuration (e.g., `~/.cursor/mcp.json`):
 
 ## 🎯 Available Tools
 
-### Health & System (2 tools)
-- `coolify_health_check` - Check Coolify system health
-- `coolify_version` - Get Coolify API version information
+The Coolify MCP Server provides **18 consolidated tools** that cover all Coolify functionality through action-based parameters:
 
-### Team Management (5 tools)
-- `coolify_list_teams` - List all teams
-- `coolify_get_current_team` - Get current team information
-- `coolify_get_team` - Get team by ID
-- `coolify_list_team_members` - List team members
+### System Management (1 tool)
+- `coolify_system` - System health, version, and information management
+  - Actions: `health`, `version`, `info`
 
-### Project Management (10 tools)
-- `coolify_list_projects` - List all projects
-- `coolify_create_project` - Create a new project
-- `coolify_get_project` - Get project by UUID
-- `coolify_update_project` - Update project
-- `coolify_delete_project` - Delete project
-- `coolify_list_project_environments` - List project environments
-- `coolify_get_project_environment` - Get project environment details
-- `coolify_create_project_environment` - Create project environment
-- `coolify_delete_project_environment` - Delete project environment
+### Team Management (1 tool)
+- `coolify_teams` - Complete team management operations
+  - Actions: `list`, `current`, `get`, `members`
 
-### Application Management (19 tools)
-- `coolify_list_applications` - List all applications
-- `coolify_create_public_application` - Create a public application
-- `coolify_create_private_github_application` - Create a private GitHub application
-- `coolify_create_private_deploy_key_application` - Create a private deploy key application
-- `coolify_create_dockerfile_application` - Create a Dockerfile application
-- `coolify_create_dockerimage_application` - Create a Docker image application
-- `coolify_create_dockercompose_application` - Create a Docker Compose application
-- `coolify_get_application` - Get application by UUID
-- `coolify_update_application` - Update application
-- `coolify_delete_application` - Delete application
-- `coolify_start_application` - Start application
-- `coolify_stop_application` - Stop application
-- `coolify_restart_application` - Restart application
-- `coolify_get_application_logs` - Get application logs
-- `coolify_get_application_deployments` - Get deployments for an application
-- `coolify_list_application_envs` - List application environment variables
-- `coolify_create_application_env` - Create application environment variable
-- `coolify_bulk_update_application_envs` - Bulk update application environment variables
-- `coolify_delete_application_env` - Delete application environment variable
+### Project Management (2 tools)
+- `coolify_projects` - Project CRUD operations
+  - Actions: `list`, `create`, `get`, `update`, `delete`
+- `coolify_project_environments` - Project environment management
+  - Actions: `list`, `create`, `get`, `delete`
 
+### Application Management (5 tools)
+- `coolify_applications` - Application CRUD operations (all types)
+  - Actions: `list`, `create`, `update`, `get`, `delete`
+  - Supports: public, private_github, private_deploy_key, dockerfile, dockerimage, dockercompose
+- `coolify_application_lifecycle` - Application lifecycle management
+  - Actions: `start`, `stop`, `restart`
+- `coolify_application_envs` - Application environment variables
+  - Actions: `list`, `create`, `bulk_update`, `delete`
+- `coolify_logs` - Application logs retrieval
+  - Actions: `get`
+- `coolify_application_deployments` - Application deployment management
+  - Actions: `list`, `get`, `trigger`
 
-### Database Management (15 tools)
-- `coolify_list_databases` - List all databases
-- `coolify_create_database` - Create a new database (generic)
-- `coolify_create_postgresql_database` - Create a PostgreSQL database
-- `coolify_create_mysql_database` - Create a MySQL database
-- `coolify_create_mongodb_database` - Create a MongoDB database
-- `coolify_create_redis_database` - Create a Redis database
-- `coolify_create_mariadb_database` - Create a MariaDB database
-- `coolify_create_clickhouse_database` - Create a ClickHouse database
-- `coolify_create_dragonfly_database` - Create a DragonFly database
-- `coolify_create_keydb_database` - Create a KeyDB database
-- `coolify_get_database` - Get database by UUID
-- `coolify_update_database` - Update database
-- `coolify_delete_database` - Delete database
-- `coolify_start_database` - Start database
-- `coolify_stop_database` - Stop database
-- `coolify_restart_database` - Restart database
+### Database Management (3 tools)
+- `coolify_databases` - Database CRUD operations
+  - Actions: `list`, `create`, `get`, `update`, `delete`
+- `coolify_database_lifecycle` - Database lifecycle management
+  - Actions: `start`, `stop`, `restart`
+- `coolify_database_types` - Specific database type creation
+  - Actions: `create` (PostgreSQL, MySQL, MongoDB, Redis)
 
-### Server Management (8 tools)
-- `coolify_list_servers` - List all servers
-- `coolify_create_server` - Create a new server
-- `coolify_get_server` - Get server by UUID
-- `coolify_update_server` - Update server
-- `coolify_delete_server` - Delete server
-- `coolify_validate_server` - Validate server connection
-- `coolify_list_server_domains` - List server domains
-- `coolify_list_server_resources` - List server resources
+### Server Management (2 tools)
+- `coolify_servers` - Server CRUD operations
+  - Actions: `list`, `create`, `get`, `update`, `delete`
+- `coolify_server_management` - Server operations and resources
+  - Actions: `validate`, `domains`, `resources`
 
-### Service Management (15 tools)
-- `coolify_list_services` - List all services
-- `coolify_create_service` - Create a new service
-- `coolify_get_service` - Get service by UUID
-- `coolify_update_service` - Update service
-- `coolify_delete_service` - Delete service
-- `coolify_start_service` - Start service
-- `coolify_stop_service` - Stop service
-- `coolify_restart_service` - Restart service
-- `coolify_list_service_envs` - List service environment variables
-- `coolify_create_service_env` - Create service environment variable
-- `coolify_update_service_env` - Update service environment variable
-- `coolify_bulk_update_service_envs` - Bulk update service environment variables
-- `coolify_delete_service_env` - Delete service environment variable
+### Service Management (3 tools)
+- `coolify_services` - Service CRUD operations
+  - Actions: `list`, `create`, `get`, `update`, `delete`
+- `coolify_service_lifecycle` - Service lifecycle management
+  - Actions: `start`, `stop`, `restart`
+- `coolify_service_envs` - Service environment variables
+  - Actions: `list`, `create`, `update`, `bulk_update`, `delete`
 
-### Deployment Management (4 tools)
-- `coolify_list_deployments` - List all deployments
-- `coolify_get_deployment` - Get deployment by UUID
-- `coolify_get_application_deployments` - Get deployments for an application
-- `coolify_trigger_deployment` - Trigger a deployment
-
-### Security & Keys (5 tools)
-- `coolify_list_security_keys` - List all security keys
-- `coolify_create_security_key` - Create a new security key
-- `coolify_get_security_key` - Get security key by UUID
-- `coolify_update_security_key` - Update security key
-- `coolify_delete_security_key` - Delete security key
-
-### Resources (1 tool)
-- `coolify_list_server_resources` - List server resources
+### Security Management (1 tool)
+- `coolify_security_keys` - Security key management
+  - Actions: `list`, `create`, `get`, `update`, `delete`
 
 ## 🏗️ Development
 
@@ -275,18 +228,22 @@ coolify-mcp-server/
 
 ## 🔧 API Coverage
 
-This MCP server provides **100% coverage** of the Coolify API with **83+ tools** covering all **83+ API endpoints**:
+This MCP server provides **100% coverage** of the Coolify API with **18 consolidated tools** covering all **83+ API endpoints**:
 
-- ✅ Health & System endpoints (2 tools)
-- ✅ Team Management endpoints (5 tools)
-- ✅ Project Management endpoints (10 tools)
-- ✅ Application Management endpoints (19 tools)
-- ✅ Database Management endpoints (15 tools)
-- ✅ Server Management endpoints (8 tools)
-- ✅ Service Management endpoints (15 tools)
-- ✅ Deployment Management endpoints (4 tools)
-- ✅ Security & Keys endpoints (5 tools)
-- ✅ Resources endpoints (1 tool)
+- ✅ System Management (1 tool) - Health, version, and system information
+- ✅ Team Management (1 tool) - Complete team operations
+- ✅ Project Management (2 tools) - Projects and environments
+- ✅ Application Management (5 tools) - All application types and lifecycle
+- ✅ Database Management (3 tools) - All database types and operations
+- ✅ Server Management (2 tools) - Server operations and resources
+- ✅ Service Management (3 tools) - Service operations and lifecycle
+- ✅ Security Management (1 tool) - Security keys and authentication
+
+**Key Benefits of Consolidation:**
+- 🎯 **Reduced Complexity**: 18 tools instead of 83+ individual tools
+- 🚀 **Better Performance**: Fewer tool definitions and cleaner API
+- 🔧 **Easier Maintenance**: Action-based parameters for better organization
+- 📚 **Simplified Documentation**: Clear tool categories and actions
 
 ## 🚀 Production Deployment
 
