@@ -1,6 +1,6 @@
 {
   "name": "coolifymcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Consolidated Model Context Protocol (MCP) server with 18 streamlined tools providing 100% coverage of Coolify API endpoints for AI assistants",
   "main": "dist/index.js",
   "type": "module",
